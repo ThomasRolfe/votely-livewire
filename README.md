@@ -1,8 +1,8 @@
-#Installation
+# Installation
 
-composer install
+```composer install```
 
-```yarn install```
+```yarn install``` or ```npm install```
 
 ```docker-compose up``` [starts laravel and mysql (mariadb) containers]
 
