@@ -4,6 +4,11 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    try {
+        throw new Exception('manual exception for sentry', '422');
+    } catch (Exception $e) {
+        \Sentry\captureException($e);
+    }
     return view('welcome');
 });
 
