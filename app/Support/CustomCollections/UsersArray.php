@@ -4,7 +4,7 @@ namespace App\Support\CustomCollections;
 
 use App\Models\User;
 
-class Users extends ClassArray
+class UsersArray extends ClassArray
 {
     protected function className(): string
     {

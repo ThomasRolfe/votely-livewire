@@ -5,8 +5,8 @@ namespace App\Support\CustomCollections;
 use InvalidArgumentException;
 
 /**
- * Provides a type hint-able object holding an array of a specific class (or inheritor of specified class)
- * This allows type safety when receiving an array and ensuring it only contains valid instances of a given class
+ * Provides a type hint-able object holding an array of a specific class (or inheritor of specified class).
+ * This allows type safety when receiving an array as an argument and ensuring it only contains valid instances of a given class
  */
 abstract class ClassArray extends \ArrayObject
 {
