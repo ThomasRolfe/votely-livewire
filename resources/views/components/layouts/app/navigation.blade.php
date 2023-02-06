@@ -21,7 +21,7 @@
                 <div class="border-gray-700 border-t">
 
                 </div>
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
 
                     <a class="text-slate-100 hover:bg-slate-700 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition"

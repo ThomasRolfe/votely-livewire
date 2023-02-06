@@ -2,16 +2,12 @@
 
 namespace App\Http\Resources;
 
+use App\Models\SubmittedField;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class SubmittedFieldResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
-     */
+    /** @mixin SubmittedField */
     public function toArray($request)
     {
         return [

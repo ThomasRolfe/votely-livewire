@@ -2,12 +2,14 @@
 
 namespace App\Http\Resources;
 
+use App\Models\SubmissionSchema;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class SubmissionSchemaResource extends JsonResource
 {
     public static $wrap = null;
 
+    /** @mixin SubmissionSchema */
     public function toArray($request)
     {
         return [

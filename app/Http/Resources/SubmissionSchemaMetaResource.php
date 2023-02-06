@@ -2,16 +2,12 @@
 
 namespace App\Http\Resources;
 
+use App\Models\SubmissionSchemaMeta;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class SubmissionSchemaMetaResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
-     */
+    /** @mixin SubmissionSchemaMeta */
     public function toArray($request)
     {
         return [

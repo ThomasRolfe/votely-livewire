@@ -2,16 +2,12 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Question;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class QuestionResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
-     */
+    /** @mixin Question */
     public function toArray($request)
     {
         return [
@@ -19,7 +15,7 @@ class QuestionResource extends JsonResource
             'text' => $this->text,
             'order' => $this->order,
             'answer_type' => $this->answer_type,
-            'answers' => AnswerResource::collection($this->answers)
+            'answers' => AnswerResource::collection($this->answers),
         ];
     }
 }

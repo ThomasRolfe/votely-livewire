@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Contests\CreateContest;
+use App\Actions\Contests\CreateContestCoverImage;
 use App\Http\Requests\ShowContestRequest;
 use App\Http\Requests\StoreContestRequest;
 use App\Http\Requests\UpdateContestRequest;
+use App\Http\Resources\ContestResource;
 use App\Models\Contest;
-use App\Models\File;
 use App\Services\ContestService;
 use App\Services\FileService;
 use Illuminate\Support\Facades\Auth;
@@ -23,26 +25,18 @@ class ContestController extends Controller
     {
         $contests = Auth::user()->contests;
 
-        return view('contests');
+        return view('contests')->with(['contests' => ContestResource::collection($contests)]);
     }
 
     public function store(StoreContestRequest $request)
     {
-        $contest = $this->contestService->make(
-            $request->safe()->except('cover_image')
+        $contest = CreateContest::run(
+            Auth::user(),
+            $request->safe()->except(['cover_image'])
         );
 
-        Auth::user()->contests()->save($contest);
-
-        $contest->fresh();
-
         if ($request->has('cover_image')) {
-            $image = $this->fileService->create(
-                $request->file('cover_image'),
-                FILE::COVER_IMAGE_DIRECTORY
-            );
-
-            $contest->coverImage()->save($image);
+            CreateContestCoverImage::run($contest, $request->file('cover_image'));
         }
 
         return ContestResource::make($contest);
