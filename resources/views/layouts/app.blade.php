@@ -8,7 +8,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend:wght@400;500&display=swap"/>
 
@@ -20,7 +19,7 @@
     @livewireStyles
 </head>
 <body class="font-sans antialiased">
-<x-jet-banner/>
+{{--<x-jet-banner/>--}}
 
 <div class="min-h-full ">
     <x-app-navigation/>

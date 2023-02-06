@@ -13,21 +13,23 @@
             <div class="space-y-3">
                 @foreach($links as $link)
                     <a href="{{ $link['href'] }}"
-                       class="{{ $link['isCurrent'] ? 'bg-navy-dark text-slate-100' : 'text-slate-100  hover:bg-slate-700' }} group flex items-center px-2 py-2 text-sm font-medium rounded-md transition">
-                        {{ $link['name'] }}
+                       class="{{ $link['isCurrent'] ? 'bg-navy-dark text-slate-100' : 'text-slate-100  hover:bg-slate-700' }} group flex items-center px-3 py-2 text-sm font-medium rounded-md transition">
+                        {{ __($link['name']) }}
                     </a>
                 @endforeach
 
                 <div class="border-gray-700 border-t">
 
                 </div>
-                <form method="POST" action="{{ route('logout') }}" x-data>
+                <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-jet-dropdown-link href="{{ route('logout') }}"
-                                         @click.prevent="$root.submit();">
+                    <a class="text-slate-100 hover:bg-slate-700 group flex items-center px-3 py-2 text-sm font-medium rounded-md transition"
+                       href="{{ route('logout') }}"
+                       @click.prevent="$root.submit();"
+                    >
                         {{ __('Log Out') }}
-                    </x-jet-dropdown-link>
+                    </a>
                 </form>
             </div>
         </nav>
