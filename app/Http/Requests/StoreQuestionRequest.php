@@ -28,13 +28,13 @@ class StoreQuestionRequest extends FormRequest
         return [
             'text' => [
                 'required',
-                'string'
+                'string',
             ],
             'answer_type' => [
                 'required',
-                new Enum(AnswerTypes::class)
+                new Enum(AnswerTypes::class),
             ],
-            'order'
+            'order',
         ];
     }
 }

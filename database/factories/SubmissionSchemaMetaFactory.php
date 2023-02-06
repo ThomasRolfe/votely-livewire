@@ -36,7 +36,7 @@ class SubmissionSchemaMetaFactory extends Factory
         return $this->state(function ($attributes) {
             return [
                 'key' => 'file_type',
-                'value' => 'image'
+                'value' => 'image',
             ];
         });
     }

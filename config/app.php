@@ -199,7 +199,6 @@ return [
         \Laravel\Socialite\SocialiteServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
 
-
     ],
 
     /*

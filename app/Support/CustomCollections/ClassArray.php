@@ -12,6 +12,7 @@ abstract class ClassArray extends \ArrayObject
 {
     /**
      * Return the fully qualified class name that array should contain
+     *
      * @return string
      */
     abstract protected function className(): string;
@@ -32,8 +33,8 @@ abstract class ClassArray extends \ArrayObject
     {
         $type = $this->className();
 
-        if (!is_object($value) || !($value instanceof $type)) {
-            throw new InvalidArgumentException('Only objects of type ' . $type . ' allowed.');
+        if (! is_object($value) || ! ($value instanceof $type)) {
+            throw new InvalidArgumentException('Only objects of type '.$type.' allowed.');
         }
     }
 }

@@ -15,9 +15,7 @@ Route::get('/auth/google/callback', [LoginController::class, 'handleGoogleCallba
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
 ])->group(function () {
-
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
 });

@@ -34,7 +34,7 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_OAUTH_CLIENT_ID'),
         'client_secret' => env('GOOGLE_OAUTH_CLIENT_SECRET'),
-        'redirect' => env('GOOGLE_OAUTH_REDIRECT')
-    ]
+        'redirect' => env('GOOGLE_OAUTH_REDIRECT'),
+    ],
 
 ];

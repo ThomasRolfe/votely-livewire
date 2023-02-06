@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Models\Contest;
-use App\Models\Question;
 
 class ContestService
 {
@@ -11,5 +10,4 @@ class ContestService
     {
         return new Contest($data);
     }
-
 }

@@ -19,7 +19,7 @@ class SubmissionService
         ]);
 
         foreach ($submittedFields as $index => $submittedField) {
-            if (!$submittedField['value']) {
+            if (! $submittedField['value']) {
                 continue;
             }
 

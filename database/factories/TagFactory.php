@@ -18,46 +18,46 @@ class TagFactory extends Factory
     {
         return [
             'label' => fake()->word(),
-            'color' => fake()->hexColor()
+            'color' => fake()->hexColor(),
         ];
     }
 
     public function shortlisted()
     {
-        return $this->state(function($attributes) {
+        return $this->state(function ($attributes) {
             return [
                 'label' => 'shortlisted',
-                'color' => '#249bb3'
+                'color' => '#249bb3',
             ];
         });
     }
 
     public function approved()
     {
-        return $this->state(function($attributes) {
+        return $this->state(function ($attributes) {
             return [
                 'label' => 'approved',
-                'color' => '#1fad4f'
+                'color' => '#1fad4f',
             ];
         });
     }
 
     public function favourite()
     {
-        return $this->state(function($attributes) {
+        return $this->state(function ($attributes) {
             return [
                 'label' => 'favourite',
-                'color' => '#bda915'
+                'color' => '#bda915',
             ];
         });
     }
 
     public function rejected()
     {
-        return $this->state(function($attributes) {
+        return $this->state(function ($attributes) {
             return [
                 'label' => 'rejected',
-                'color' => '#821f1a'
+                'color' => '#821f1a',
             ];
         });
     }

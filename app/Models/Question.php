@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Enums\AnswerTypes;
-use App\Services\UniqueKeyGeneratorService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -18,15 +17,15 @@ class Question extends Model
         'uuid',
         'text',
         'answer_type',
-        'order'
+        'order',
     ];
 
     protected $casts = [
-        'answer_type' => AnswerTypes::class
+        'answer_type' => AnswerTypes::class,
     ];
 
     protected $appends = [
-        'scoreable'
+        'scoreable',
     ];
 
     protected static function boot()
