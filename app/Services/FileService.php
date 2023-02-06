@@ -19,8 +19,8 @@ class FileService
         return new File([
             'uuid' => Str::uuid(),
             'path' => $submittedFile->store($directory),
-            'width' => $dimensions ? $dimensions[0] : null,
-            'height' => $dimensions ? $dimensions[1] : null,
+            'width' => $dimensions[0] ?? null,
+            'height' => $dimensions[1] ?? null,
             'file_size_bytes' => $submittedFile->getSize(),
             'file_type' => $submittedFile->extension(),
         ]);

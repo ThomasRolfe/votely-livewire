@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\Auth;
 class ContestController extends Controller
 {
     public function __construct(
-        protected ContestService $contestService,
         protected FileService $fileService
     ) {
     }
 
     public function index()
     {
-        $contests = Auth::user()->contests;
+        /** @var array<Contest> $contests */
+        $contests = request()->user()->contests;
 
         return view('contests')->with(['contests' => ContestResource::collection($contests)]);
     }
@@ -31,7 +31,7 @@ class ContestController extends Controller
     public function store(StoreContestRequest $request)
     {
         $contest = CreateContest::run(
-            Auth::user(),
+            request()->user(),
             $request->safe()->except(['cover_image'])
         );
 
