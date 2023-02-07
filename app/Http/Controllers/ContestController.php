@@ -25,7 +25,22 @@ class ContestController extends Controller
         /** @var array<Contest> $contests */
         $contests = request()->user()->contests;
 
-        return view('contests')->with(['contests' => ContestResource::collection($contests)]);
+        return view('app.contests.index')->with(['contests' => ContestResource::collection($contests)]);
+    }
+
+    public function create()
+    {
+        $breadcrumbs = [
+            [
+                'name' => 'Contests',
+                'href' => route('contests'),
+            ],
+            [
+                'name' => 'Create',
+                'href' => route('contests.create'),
+            ]
+        ];
+        return view('app.contests.create')->with(['breadcrumbs' => $breadcrumbs]);
     }
 
     public function store(StoreContestRequest $request)
