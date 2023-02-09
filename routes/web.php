@@ -22,11 +22,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('contests', ContestController::class);
 
-    Route::group(['prefix' => '/contests'], function() {
-        Route::get('/', [ContestController::class, 'index'])->name('contests');
-        Route::get('/create', [ContestController::class, 'create'])->name('contests.create');
-    });
     Route::get('/questions', [QuestionController::class, 'index'])->name('questions');
     Route::get('/tags', [TagController::class, 'index'])->name('tags');
     Route::get('/settings', [SettingController::class, 'index'])->name('settings');

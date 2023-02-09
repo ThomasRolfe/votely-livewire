@@ -9,9 +9,9 @@ use App\Http\Requests\StoreContestRequest;
 use App\Http\Requests\UpdateContestRequest;
 use App\Http\Resources\ContestResource;
 use App\Models\Contest;
-use App\Services\ContestService;
 use App\Services\FileService;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class ContestController extends Controller
 {
@@ -25,7 +25,14 @@ class ContestController extends Controller
         /** @var array<Contest> $contests */
         $contests = request()->user()->contests;
 
-        return view('app.contests.index')->with(['contests' => ContestResource::collection($contests)]);
+        $breadcrumbs = [
+            [
+                'name' => 'Contests',
+                'href' => route('contests.index'),
+            ],
+        ];
+
+        return view('app.contests.index')->with(['breadcrumbs' => $breadcrumbs, 'contests' => $contests]);
     }
 
     public function create()
@@ -33,13 +40,14 @@ class ContestController extends Controller
         $breadcrumbs = [
             [
                 'name' => 'Contests',
-                'href' => route('contests'),
+                'href' => route('contests.index'),
             ],
             [
                 'name' => 'Create',
                 'href' => route('contests.create'),
             ]
         ];
+
         return view('app.contests.create')->with(['breadcrumbs' => $breadcrumbs]);
     }
 
@@ -59,7 +67,18 @@ class ContestController extends Controller
 
     public function show(ShowContestRequest $request, Contest $contest)
     {
-        return ContestResource::make($contest);
+        $breadcrumbs = [
+            [
+                'name' => 'Contests',
+                'href' => route('contests.index'),
+            ],
+            [
+                'name' => $contest->name,
+                'href' => Route::current(),
+            ]
+        ];
+        return view('app.contests.show')->with(['breadcrumbs' => $breadcrumbs, 'contest' => $contest]);
+        //return ContestResource::make($contest);
     }
 
     public function update(string $contestUuid, UpdateContestRequest $request)
