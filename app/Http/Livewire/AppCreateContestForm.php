@@ -61,8 +61,5 @@ class AppCreateContestForm extends Component
         }
 
         return redirect()->route('contests.show', ['contest' => $contest]);
-
-        // Handle succesful contest creation
-        // Redirect to completed contest?
     }
 }

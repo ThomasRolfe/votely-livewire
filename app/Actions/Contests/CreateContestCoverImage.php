@@ -18,13 +18,11 @@ class CreateContestCoverImage
 
     public function handle(Contest $contest, UploadedFile $file): Contest
     {
-        //dump($file);
         $image = $this->fileService->create(
             $file,
             FILE::COVER_IMAGE_DIRECTORY
         );
 
-        //dd($image);
         $contest->coverImage()->save($image);
 
         return $contest->fresh();

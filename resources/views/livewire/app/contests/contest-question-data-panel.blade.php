@@ -6,7 +6,8 @@
             </h3>
             <a href="{{ route('contests.questions.edit', $contest) }}"
                class="button-primary button-small ml-4 text-white">
-                Edit
+                <span>Edit</span>
+                <i class="fa-solid fa-pencil ml-4 flex-shrink h-5 w-5 text-white"></i>
             </a>
         </x-app.card-header>
         <div>

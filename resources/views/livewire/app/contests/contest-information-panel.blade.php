@@ -7,8 +7,10 @@
                 </h3>
             </div>
             <div class="flex-shrink-0">
-{{--                <a href="{{ route('contests.edit', ['contest' => $contest->id]) }}" class="button-primary button-small ml-4 text-white">--}}
-                    Edit
+                <a href="{{ route('contests.edit', $contest) }}"
+                   class="button-primary button-small ml-4 text-white">
+                    <span>Edit</span>
+                    <i class="fa-solid fa-pencil ml-4 flex-shrink h-5 w-5 text-white"></i>
                 </a>
             </div>
         </x-app.card-header>
@@ -81,7 +83,8 @@
                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                         <div class="max-w-96 max-h-96 ">
                             @if(isset($this->coverImagePath))
-                                <img src="{{ $this->coverImagePath }}" width="{{ $contest->coverImage->width }}" height="{{ $contest->coverImage->height }}" />
+                                <img src="{{ $this->coverImagePath }}" width="{{ $contest->coverImage->width }}"
+                                     height="{{ $contest->coverImage->height }}"/>
 
                             @else
                                 N/A
