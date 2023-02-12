@@ -46,4 +46,9 @@ class SubmissionSchemaController extends Controller
 
         return response()->json([], Response::HTTP_CREATED);
     }
+
+    public function edit()
+    {
+        return 'test';
+    }
 }

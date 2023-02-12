@@ -1,0 +1,100 @@
+<div class="col-span-6">
+    <x-app.card>
+        <x-app.card-header>
+            <div>
+                <h3 class="text-lg font-medium leading-6 text-slate-700">
+                    Contest information
+                </h3>
+            </div>
+            <div class="flex-shrink-0">
+                <a href="{{ route('contests.edit', ['contest' => $contest->id]) }}" class="button-primary button-small ml-4 text-white">
+                    Edit
+                </a>
+            </div>
+        </x-app.card-header>
+        <div class="px-4 py-5 sm:p-0">
+            <dl class="sm:divide-y sm:divide-slate-100">
+                <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">Name</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                        {{ $contest->name }}
+                    </dd>
+                </div>
+                <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">Description</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                        {{ $contest->description }}
+                    </dd>
+                </div>
+                <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">Submissions</dt>
+                    <dd class="mt-1 flex flex-col gap-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                        <div>
+                            <span class="text-sm font-medium text-gray-500"> Start: </span>
+                            {{ $contest?->submission_start_date?->toRfc7231String() ?? 'N/A'  }}
+                        </div>
+                        <div>
+                            <span class="text-sm font-medium text-gray-500">End: </span>
+                            {{ $contest?->submission_end_date?->toRfc7231String() ?? 'N/A'  }}
+                        </div>
+                    </dd>
+                </div>
+                <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                    <dt class="text-sm font-medium text-gray-500">Voting</dt>
+                    <dd class="mt-1 flex flex-col gap-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                        <div>
+                            <span class="text-sm font-medium text-gray-500">Start: </span>
+                            {{ $contest?->vote_start_date?->toRfc7231String() ?? 'N/A' }}
+                        </div>
+                        <div>
+                            <span class="text-sm font-medium text-gray-500">End: </span>
+                            {{ $contest?->vote_end_date?->toRfc7231String() ?? 'N/A' }}
+                        </div>
+                    </dd>
+                </div>
+                <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                    <dt class="flex text-sm font-medium text-gray-500">
+                        <span>Public submission key </span>
+                        <button title="Regenerate public key">
+                            refresh icon
+                        </button>
+                    </dt>
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                        {{ $contest->public_key }}
+                        {{--                        {contest?.public_key}--}}
+                        {{--                        <Icon--}}
+                        {{--                            onClick={() => {--}}
+                        {{--                        navigator.clipboard.writeText(--}}
+                        {{--                        `${window.location.host}/enter/${contest?.public_key}`--}}
+                        {{--                        )--}}
+                        {{--                        }}--}}
+                        {{--                        IconElement={ClipboardCopyIcon}--}}
+                        {{--                        class="ml-4 text-gray-500 hover:cursor-pointer hover:text-blue-500"--}}
+                        {{--                        title="Copy to clipboard"--}}
+                        {{--                        />--}}
+                    </dd>
+                </div>
+                <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                    <dt class="flex text-sm font-medium text-gray-500">
+                        Cover image
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                        <div class="max-w-96 max-h-96 ">
+                            cover image
+                            {{--                            {contest?.cover_image ? (--}}
+                            {{--                            <Image--}}
+                            {{--                                src={contest?.cover_image.path}--}}
+                            {{--                                width={contest?.cover_image.width}--}}
+                            {{--                                height={contest?.cover_image.height}--}}
+                            {{--                                alt="Contest cover image"--}}
+                            {{--                            />--}}
+                            {{--                            ) : (--}}
+                            {{--                            'N/A'--}}
+                            {{--                            )}--}}
+                        </div>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </x-app.card>
+</div>

@@ -1,15 +1,15 @@
 <x-app-layout>
 
-    <x-layouts.app.header>
-        <x-layouts.app.header-left>
-            <x-layouts.app.title>
+    <x-app.layouts.header>
+        <x-app.layouts.header-left>
+            <x-app.layouts.title>
                 {{ __('Dashboard') }}
-            </x-layouts.app.title>
-        </x-layouts.app.header-left>
-    </x-layouts.app.header>
+            </x-app.layouts.title>
+        </x-app.layouts.header-left>
+    </x-app.layouts.header>
 
-    <x-layouts.app.body>
+    <x-app.layouts.body>
         <h3>Welcome {{ Auth::user()->name }}</h3>
-    </x-layouts.app.body>
+    </x-app.layouts.body>
 
 </x-app-layout>

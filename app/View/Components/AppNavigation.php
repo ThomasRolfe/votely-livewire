@@ -43,6 +43,6 @@ class AppNavigation extends Component
 
     public function render(): View|string|\Closure
     {
-        return view('components.layouts.app.navigation');
+        return view('components.app.layouts.navigation');
     }
 }

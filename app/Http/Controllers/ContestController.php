@@ -74,11 +74,16 @@ class ContestController extends Controller
             ],
             [
                 'name' => $contest->name,
-                'href' => Route::current(),
+                'href' => $request->path(),
             ]
         ];
+
         return view('app.contests.show')->with(['breadcrumbs' => $breadcrumbs, 'contest' => $contest]);
-        //return ContestResource::make($contest);
+    }
+
+    public function edit(Contest $contest)
+    {
+
     }
 
     public function update(string $contestUuid, UpdateContestRequest $request)

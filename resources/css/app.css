@@ -3,3 +3,45 @@
 @tailwind utilities;
 
 [x-cloak] { display: none !important; }
+
+@layer components {
+    .button {
+        @apply inline-flex items-center justify-center border hover:cursor-pointer rounded-md font-medium focus:outline-blue-700 focus:ring-slate-300 focus:ring-offset-2;
+    }
+
+    .button-primary {
+        @apply button bg-blue-600 text-white hover:bg-blue-700;
+    }
+
+    .button-secondary {
+        @apply button border-transparent bg-teal-400 text-white hover:bg-teal-600;
+    }
+
+    .button-lesser {
+        @apply button border-gray-300 bg-white text-gray-700 hover:bg-gray-50;
+    }
+
+    .button-download {
+        @apply button border-purple-400 bg-purple-600 text-white hover:bg-purple-500;
+    }
+
+    .button-xsmall {
+        @apply px-2.5 py-1.5 text-xs;
+    }
+
+    .button-small {
+        @apply px-3 py-2 text-sm;
+    }
+
+    .button-regular {
+        @apply py-2 px-4 text-sm;
+    }
+
+    .button-large {
+        @apply px-4 py-2 text-base;
+    }
+
+    .button-xlarge {
+        @apply px-6 py-3 text-base;
+    }
+}

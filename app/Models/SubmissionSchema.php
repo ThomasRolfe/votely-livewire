@@ -25,9 +25,9 @@ class SubmissionSchema extends Model
         'meta',
     ];
 
-    protected $appends = [
-        'showInPreview',
-    ];
+    //protected $appends = [
+    //    'showInPreview',
+    //];
 
     protected $casts = [
         'show_in_preview' => 'boolean',

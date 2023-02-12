@@ -1,7 +1,8 @@
+@isset($breadcrumbs)
 <div class="mb-2">
     <nav class="sm:hidden" aria-label="Back">
-        @if(count($navigationPath) > 1)
-            <a href="{{ $navigationPath[count($navigationPath) - 2]["href"] }}"
+        @if(count($breadcrumbs) > 1)
+            <a href="{{ $breadcrumbs[count($breadcrumbs) - 2]["href"] }}"
                class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
                 <
                 Back
@@ -16,7 +17,7 @@
     </nav>
     <nav class="hidden sm:flex" aria-label="Breadcrumb">
         <ol role="list" class="flex items-center space-x-4">
-            @foreach($navigationPath as $index => $navItem)
+            @foreach($breadcrumbs as $index => $navItem)
                 <li>
                     <div class="flex items-center">
                         @if(!$loop->first)
@@ -31,3 +32,4 @@
         </ol>
     </nav>
 </div>
+@endisset
