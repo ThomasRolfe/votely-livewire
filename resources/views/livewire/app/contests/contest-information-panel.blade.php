@@ -7,7 +7,7 @@
                 </h3>
             </div>
             <div class="flex-shrink-0">
-                <a href="{{ route('contests.edit', ['contest' => $contest->id]) }}" class="button-primary button-small ml-4 text-white">
+{{--                <a href="{{ route('contests.edit', ['contest' => $contest->id]) }}" class="button-primary button-small ml-4 text-white">--}}
                     Edit
                 </a>
             </div>
@@ -80,17 +80,12 @@
                     </dt>
                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                         <div class="max-w-96 max-h-96 ">
-                            cover image
-                            {{--                            {contest?.cover_image ? (--}}
-                            {{--                            <Image--}}
-                            {{--                                src={contest?.cover_image.path}--}}
-                            {{--                                width={contest?.cover_image.width}--}}
-                            {{--                                height={contest?.cover_image.height}--}}
-                            {{--                                alt="Contest cover image"--}}
-                            {{--                            />--}}
-                            {{--                            ) : (--}}
-                            {{--                            'N/A'--}}
-                            {{--                            )}--}}
+                            @if(isset($this->coverImagePath))
+                                <img src="{{ $this->coverImagePath }}" width="{{ $contest->coverImage->width }}" height="{{ $contest->coverImage->height }}" />
+
+                            @else
+                                N/A
+                            @endif
                         </div>
                     </dd>
                 </div>

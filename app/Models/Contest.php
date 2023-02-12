@@ -38,6 +38,7 @@ class Contest extends Model
     protected $with = [
         'coverImage',
         'submissionSchemas',
+        'questions'
     ];
 
     protected static function boot()

@@ -67,6 +67,7 @@ class ContestController extends Controller
 
     public function show(ShowContestRequest $request, Contest $contest)
     {
+        //$contest->load(['coverImage', 'questions', 'submissionSchemas', ''])
         $breadcrumbs = [
             [
                 'name' => 'Contests',

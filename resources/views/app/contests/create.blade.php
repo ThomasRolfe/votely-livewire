@@ -9,9 +9,11 @@
     </x-app.layouts.header>
 
     <x-app.layouts.body>
-        <h3>{{ __('Create Contest') }}</h3>
-
-
+        <x-app.card>
+            <x-app.card-body>
+                <livewire:create-contest-form />
+            </x-app.card-body>
+        </x-app.card>
     </x-app.layouts.body>
 
 </x-app-layout>

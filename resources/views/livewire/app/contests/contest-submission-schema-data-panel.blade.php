@@ -5,21 +5,13 @@
                 Submission Schemas
             </h3>
             <a href="{{ route('contests.submission-schema.edit', $contest) }}"
-               class="button-primary button-small ml-4 text-white">
-                Edit
+               class="button-primary button-small ml-4 text-white flex">
+                <span>Edit</span>
+                <i class="fa-solid fa-pencil ml-4 flex-shrink h-5 w-5 text-white"></i>
             </a>
         </x-app.card-header>
         <div>
-            @empty($contest->submissionSchemas)
-                <div class="p-4 text-center">
-                    <h3 class="text-sm font-medium text-gray-900">
-                        No submission fields created
-                    </h3>
-                    <p class="mt-1 text-sm text-gray-500">
-                        Add submission fields to let users enter your competition!
-                    </p>
-                </div>
-            @endempty
+
             @if(count($contest->submissionSchemas) > 0)
                 <ul role="list" class="divide-y divide-slate-100">
                     @foreach($contest->submissionSchemas as $submissionSchema)
@@ -41,6 +33,15 @@
                         </li>
                     @endforeach
                 </ul>
+            @else
+                <div class="p-4 text-center">
+                    <h3 class="text-sm font-medium text-gray-900">
+                        No submission fields created
+                    </h3>
+                    <p class="mt-1 text-sm text-gray-500">
+                        Add submission fields to let users enter your competition.
+                    </p>
+                </div>
             @endif
 
         </div>

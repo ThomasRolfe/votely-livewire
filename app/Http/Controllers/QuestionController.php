@@ -43,4 +43,9 @@ class QuestionController extends Controller
 
         return response()->json([], ResponseAlias::HTTP_CREATED);
     }
+
+    public function edit()
+    {
+        return 'test';
+    }
 }

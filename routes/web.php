@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContestController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SubmissionSchemaController;
@@ -15,6 +16,8 @@ Route::get('/', function () {
 
 Route::get('/auth/google', [LoginController::class, 'redirectToGoogle'])->name('login');
 Route::get('/auth/google/callback', [LoginController::class, 'handleGoogleCallback']);
+
+Route::get('/file/{file:uuid}/download', [FileController::class, 'download']);
 
 // Authenticated application routes
 Route::middleware([
@@ -33,7 +36,9 @@ Route::middleware([
     });
 
     // Questions
-    Route::get('/questions', [QuestionController::class, 'index'])->name('questions');
+    Route::prefix('contests/{contest}/questions')->group(function() {
+        Route::get('/edit', [QuestionController::class, 'edit'])->name('contests.questions.edit');
+    });
 
     // Tags
     Route::get('/tags', [TagController::class, 'index'])->name('tags');

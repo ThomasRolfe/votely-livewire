@@ -21,16 +21,16 @@ class StoreContestRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => 'required|string|unique:contests,name',
             'description' => 'required|string|max:1000',
-            'submission_start_date' => 'nullable|date',
+            'submission_start_date' => 'required|date',
             'submission_end_date' => 'nullable|date|after:submission_start_date',
             'vote_start_date' => 'nullable|date',
             'vote_end_date' => 'nullable|date|after:vote_start_date',
-            'cover_image' => 'nullable|file',
+            'cover_image' => 'nullable|image|max:2048',
         ];
     }
 

@@ -13,12 +13,12 @@ class FileService
         $dimensions = null;
 
         if ($this->isImageFile($submittedFile)) {
-            $dimensions = getimagesize($submittedFile);
+            $dimensions = getimagesize($submittedFile->path());
         }
 
         return new File([
             'uuid' => Str::uuid(),
-            'path' => $submittedFile->store($directory),
+            'path' => $submittedFile->store($directory, ['disk' => config('filesystems.default')]),
             'width' => $dimensions[0] ?? null,
             'height' => $dimensions[1] ?? null,
             'file_size_bytes' => $submittedFile->getSize(),
