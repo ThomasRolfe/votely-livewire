@@ -15,7 +15,6 @@ class Submission extends Model
         'contest_id',
         'ip_address',
     ];
-
     protected $with = [
         'submittedFields',
     ];

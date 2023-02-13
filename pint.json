@@ -1,0 +1,26 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "simplified_null_return": true,
+        "combine_consecutive_issets": true,
+        "concat_space": {
+            "spacing": "one"
+        },
+        "class_attributes_separation": {
+            "elements": {
+                "const": "one",
+                "method": "one",
+                "property": "none",
+                "trait_import": "none",
+                "case": "none"
+            }
+        },
+        "braces": false,
+        "new_with_braces": {
+            "anonymous_class": false,
+            "named_class": false
+        },
+        "method_chaining_indentation": true,
+        "visibility_required": true
+    }
+}

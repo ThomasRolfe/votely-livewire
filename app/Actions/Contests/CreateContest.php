@@ -11,8 +11,8 @@ class CreateContest
     use AsAction;
 
     /**
-     * @param User $user
-     * @param array<string, string> $contestData
+     * @param  User  $user
+     * @param  array<string, string>  $contestData
      * @return Contest
      */
     public function handle(User $user, array $contestData): Contest

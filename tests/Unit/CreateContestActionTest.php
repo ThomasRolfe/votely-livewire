@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Actions\Contests\CreateContest;
-use App\Models\Contest;
 use App\Models\User;
 use Database\Factories\ContestFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -13,6 +12,7 @@ use Tests\TestCase;
 class CreateContestActionTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic unit test example.
      *

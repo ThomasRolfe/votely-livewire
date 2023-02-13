@@ -34,7 +34,7 @@ abstract class ClassArray extends \ArrayObject
         $type = $this->className();
 
         if (! is_object($value) || ! ($value instanceof $type)) {
-            throw new InvalidArgumentException('Only objects of type '.$type.' allowed.');
+            throw new InvalidArgumentException('Only objects of type ' . $type . ' allowed.');
         }
     }
 }

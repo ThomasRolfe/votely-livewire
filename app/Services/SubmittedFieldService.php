@@ -23,7 +23,7 @@ class SubmittedFieldService
             return $this->storeSubmittedFile(
                 $submission,
                 $submittedField,
-                request()->file('submittedFields.'.$index.'.value')
+                request()->file('submittedFields.' . $index . '.value')
             );
         }
 

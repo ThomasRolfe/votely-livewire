@@ -12,18 +12,15 @@ class Question extends Model
     use HasFactory;
 
     protected $table = 'questions';
-
     protected $fillable = [
         'uuid',
         'text',
         'answer_type',
         'order',
     ];
-
     protected $casts = [
         'answer_type' => AnswerTypes::class,
     ];
-
     protected $appends = [
         'scoreable',
     ];

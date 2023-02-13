@@ -13,7 +13,7 @@ class FileResource extends JsonResource
     {
         return [
             'path' => Storage::temporaryUrl($this->path, now()->addMinutes(30)),
-            'download' => '/file/'.urlencode($this->uuid).'/download',
+            'download' => '/file/' . urlencode($this->uuid) . '/download',
             'width' => $this->width,
             'height' => $this->height,
             'file_type' => $this->file_type,

@@ -18,7 +18,6 @@ class SubmissionSchema extends Model
         'show_in_preview',
         'visible_to_voters',
     ];
-
     protected $with = [
         'fieldType',
         'options',

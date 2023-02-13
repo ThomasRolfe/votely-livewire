@@ -10,7 +10,6 @@ use App\Http\Resources\QuestionResource;
 use App\Models\Contest;
 use App\Models\Question;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class QuestionController extends Controller

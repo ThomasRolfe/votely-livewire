@@ -17,7 +17,7 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
     }
 
     $authMiddleware = config('jetstream.guard')
-            ? 'auth:'.config('jetstream.guard')
+            ? 'auth:' . config('jetstream.guard')
             : 'auth';
 
     $authSessionMiddleware = config('jetstream.auth_session', false)
@@ -41,8 +41,8 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
                 Route::put('/current-team', [CurrentTeamController::class, 'update'])->name('current-team.update');
 
                 Route::get('/team-invitations/{invitation}', [TeamInvitationController::class, 'accept'])
-                            ->middleware(['signed'])
-                            ->name('team-invitations.accept');
+                    ->middleware(['signed'])
+                    ->name('team-invitations.accept');
             }
         });
     });

@@ -20,10 +20,9 @@ class RegenerateContestPublicKey
             'public_key' => $this->uniqueKeyGeneratorService::generateShortKey(
                 $contest::class,
                 'public_key'
-            )
+            ),
         ]);
 
         return $contest;
     }
-
 }

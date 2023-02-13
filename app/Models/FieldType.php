@@ -9,7 +9,7 @@ class FieldType extends Model
 {
     use HasFactory;
 
-    const FIELD_TYPES = [
+    public const FIELD_TYPES = [
         [
             'element' => 'text-input',
             'nice_name' => 'Text input',

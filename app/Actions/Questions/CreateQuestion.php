@@ -11,8 +11,8 @@ class CreateQuestion
     use AsAction;
 
     /**
-     * @param Contest $contest
-     * @param array<string, string> $questionData
+     * @param  Contest  $contest
+     * @param  array<string, string>  $questionData
      * @return Question
      */
     public function handle(Contest $contest, array $questionData): Question

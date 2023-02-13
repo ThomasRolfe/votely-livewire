@@ -18,9 +18,15 @@ class CreateContestCoverImage
 
     public function handle(Contest $contest, UploadedFile $file): Contest
     {
+        $directory = FILE::COVER_IMAGE_DIRECTORY;
+
+        if (config('filesystems.default') === 'local') {
+            $directory = 'public/' . $directory;
+        }
+
         $image = $this->fileService->create(
             $file,
-            FILE::COVER_IMAGE_DIRECTORY
+            $directory
         );
 
         $contest->coverImage()->save($image);

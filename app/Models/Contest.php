@@ -21,7 +21,6 @@ class Contest extends Model
         'vote_start_date',
         'vote_end_date',
     ];
-
     protected $dates = [
         'submission_start_date',
         'submission_end_date',
@@ -30,15 +29,13 @@ class Contest extends Model
         'created_at',
         'updated_at',
     ];
-
     protected $casts = [
         'status' => ContestStatuses::class,
     ];
-
     protected $with = [
         'coverImage',
         'submissionSchemas',
-        'questions'
+        'questions',
     ];
 
     protected static function boot()

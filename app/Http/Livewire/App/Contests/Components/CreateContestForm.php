@@ -1,20 +1,17 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\App\Contests\Components;
 
 use App\Actions\Contests\CreateContest;
 use App\Actions\Contests\CreateContestCoverImage;
 use App\Http\Requests\StoreContestRequest;
 use App\Models\Contest;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class AppCreateContestForm extends Component
+class CreateContestForm extends Component
 {
     use WithFileUploads;
     use AuthorizesRequests;
@@ -29,17 +26,17 @@ class AppCreateContestForm extends Component
 
     protected function messages(): array
     {
-        return (new StoreContestRequest())->messages();
+        return (new StoreContestRequest)->messages();
     }
 
     protected function rules(): array
     {
-        return (new StoreContestRequest())->rules();
+        return (new StoreContestRequest)->rules();
     }
 
     public function render()
     {
-        return view('livewire.app.contests.create-contest-form');
+        return view('livewire.app.contests.components.create-contest-form');
     }
 
     public function updated($propertyName)

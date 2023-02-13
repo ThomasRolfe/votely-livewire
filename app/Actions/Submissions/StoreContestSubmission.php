@@ -11,7 +11,9 @@ class StoreContestSubmission
 {
     use AsAction;
 
-    public function __construct(protected SubmissionService $submissionService) {}
+    public function __construct(protected SubmissionService $submissionService)
+    {
+    }
 
     public function handle(Contest $contest, array $submittedFields): Submission
     {

@@ -15,7 +15,6 @@ class SubmittedField extends Model
         'submission_schema_label',
         'value',
     ];
-
     protected $with = [
         'file',
         'submissionSchema',
