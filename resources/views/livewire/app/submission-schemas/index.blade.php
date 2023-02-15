@@ -15,13 +15,15 @@
     <x-app.layouts.body-fixed>
 
         <livewire:app.submission-schemas.components.submission-schemas-index-panel
-            :submissionSchemas="$this->contest->submissionSchemas"/>
+            :submissionSchemas="$this->contest->submissionSchemas"
+            wire:key="{{ $this->contest->id }}"
+        />
 
     </x-app.layouts.body-fixed>
 
     <x-app.modal class="sm:max-w-lg sm:p-6" title="Add input">
         @if($this->modalComponent)
-            @livewire($this->modalComponent, [], key('component' . $this->modalComponent))
+            @livewire($this->modalComponent, ['contest' => $this->contest], key('component' . $this->modalComponent))
         @endif
     </x-app.modal>
 </div>

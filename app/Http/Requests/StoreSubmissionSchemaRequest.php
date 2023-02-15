@@ -26,7 +26,7 @@ class StoreSubmissionSchemaRequest extends FormRequest
         return [
             'field_type_id' => 'required|exists:field_types,id',
             'label' => 'required|string',
-            'required' => 'required|boolean',
+            'required' => 'nullable|boolean',
             'meta' => 'nullable|array',
             'meta.*.key' => 'required|string',
             'meta.*.value' => 'required|alpha_num',

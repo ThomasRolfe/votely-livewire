@@ -21,9 +21,8 @@ class AddSchemaForm extends Component
         return view('livewire.app.submission-schemas.components.add-schema-form');
     }
 
-    public function setModalComponent(string $component)
+    public function setModalComponent(string $component, int $fieldTypeId)
     {
-        Log::error('setModalComponent in addSchemaForm ' . $component);
         $this->emit(
             'setModalComponent',
             $this->getComponentClass($component)

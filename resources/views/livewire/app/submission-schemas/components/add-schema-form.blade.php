@@ -5,7 +5,7 @@
     >
         @foreach($this->fieldTypes as $fieldType)
             <li
-                wire:click="setModalComponent('{{ $fieldType->element }}')"
+                wire:click="setModalComponent('{{ $fieldType->element }}', '{{ $fieldType->id }}')"
                 wire:key="$fieldType->element"
 {{--                wire:click="setModalComponent({{ $fieldType->element}})"--}}
                 class="col-span-1 bg-slate-100 rounded-lg divide-y divide-gray-200 border-2 border-transparent hover:cursor-pointer hover:border-blue-400 transition"

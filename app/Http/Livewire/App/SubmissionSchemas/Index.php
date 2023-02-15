@@ -13,7 +13,11 @@ class Index extends Component
     public bool $modalOpen = false;
     public string $modalComponent = '';
     public array $breadcrumbs;
-    protected $listeners = ['setModalComponent' => 'setModalComponent', 'refreshComponent' => '$refresh'];
+    protected $listeners = [
+        'setModalComponent' => 'setModalComponent',
+        'refreshComponent' => '$refresh',
+        'submissionSchemaCreated' => 'submissionSchemaCreated',
+    ];
 
     public function mount()
     {
@@ -51,6 +55,13 @@ class Index extends Component
     public function setModalComponent(string $component)
     {
         $this->modalComponent = $component;
+    }
+
+    public function submissionSchemaCreated()
+    {
+        $this->contest = Contest::find($this->contest->id);
+        $this->closeModal();
+        $this->emitSelf('$refresh');
     }
 
     public function addInput()
