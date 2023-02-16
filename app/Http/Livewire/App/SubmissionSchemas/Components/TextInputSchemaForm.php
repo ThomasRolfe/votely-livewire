@@ -6,6 +6,8 @@ use App\Actions\SubmissionSchemas\CreateSubmissionSchema;
 use App\DataTransferObjects\SubmissionSchemaData;
 use App\Http\Requests\StoreSubmissionSchemaRequest;
 use App\Models\Contest;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
 class TextInputSchemaForm extends Component
@@ -14,10 +16,6 @@ class TextInputSchemaForm extends Component
     public string $field_type_id;
     public ?bool $required = false;
     public ?bool $visible_to_voters = false;
-    public ?array $meta;
-    public ?int $order = 0;
-    public ?array $options;
-    public ?bool $show_in_preview = false;
     public Contest $contest;
 
     public function mount()
@@ -42,7 +40,11 @@ class TextInputSchemaForm extends Component
 
     public function submit()
     {
-        $validated = $this->validate();
+        $validated = Validator::make(
+            $this->all(),
+            $this->rules(),
+            $this->messages()
+        )->validate();
 
         CreateSubmissionSchema::run(
             SubmissionSchemaData::from($validated),

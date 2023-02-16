@@ -9,13 +9,14 @@ class SubmissionSchemaData extends \Spatie\LaravelData\Data
     public function __construct(
         public string $field_type_id,
         public string $label,
-        public ?bool $required,
         /** @var SubmissionSchemaMetaData[] */
         public ?DataCollection $meta,
-        public ?int $order,
+        /** @var SubmissionSchemaOptionData[] */
         public ?array $options,
-        public ?bool $show_in_preview,
-        public ?bool $visible_to_voters
+        public ?int $order = 0,
+        public bool $required = false,
+        public ?bool $show_in_preview = false,
+        public ?bool $visible_to_voters = false
     ){
 
     }

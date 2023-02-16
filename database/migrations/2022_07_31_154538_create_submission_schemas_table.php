@@ -21,9 +21,9 @@ return new class extends Migration
             $table->foreignIdFor(FieldType::class);
             $table->string('label');
             $table->boolean('required');
-            $table->boolean('visible_to_voters')->nullable()->default(false);
-            $table->boolean('show_in_preview')->nullable()->default(false);
-            $table->integer('order')->nullable()->default(0);
+            $table->boolean('visible_to_voters')->default(false);
+            $table->boolean('show_in_preview')->default(false);
+            $table->integer('order')->default(0);
             $table->timestamps();
         });
     }
