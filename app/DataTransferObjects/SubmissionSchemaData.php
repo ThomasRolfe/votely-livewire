@@ -12,7 +12,7 @@ class SubmissionSchemaData extends \Spatie\LaravelData\Data
         /** @var SubmissionSchemaMetaData[] */
         public ?DataCollection $meta,
         /** @var SubmissionSchemaOptionData[] */
-        public ?array $options,
+        public ?DataCollection $options,
         public ?int $order = 0,
         public bool $required = false,
         public ?bool $show_in_preview = false,
