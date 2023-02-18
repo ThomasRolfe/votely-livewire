@@ -2,7 +2,9 @@
 
 namespace App\DataTransferObjects;
 
-class SubmissionSchemaMetaData extends \Spatie\LaravelData\Data
+use Spatie\LaravelData\Data;
+
+class SubmissionSchemaMetaData extends Data
 {
     public function __construct(
         public string $key,

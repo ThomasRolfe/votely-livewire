@@ -1,7 +1,7 @@
 <?php
 
+use App\Enums\FieldType;
 use App\Models\Contest;
-use App\Models\FieldType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,7 +18,7 @@ return new class extends Migration
         Schema::create('submission_schemas', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Contest::class);
-            $table->foreignIdFor(FieldType::class);
+            $table->enum('field_type', array_column(FieldType::cases(), 'value'));
             $table->string('label');
             $table->boolean('required');
             $table->boolean('visible_to_voters')->default(false);

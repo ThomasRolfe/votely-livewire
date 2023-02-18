@@ -11,7 +11,7 @@ class SubmissionSchema extends Model
 
     protected $fillable = [
         'contest_id',
-        'field_type_id',
+        'field_type',
         'label',
         'required',
         'order',
@@ -19,7 +19,6 @@ class SubmissionSchema extends Model
         'visible_to_voters',
     ];
     protected $with = [
-        'fieldType',
         'options',
         'meta',
     ];
@@ -29,6 +28,7 @@ class SubmissionSchema extends Model
     //];
 
     protected $casts = [
+        'field_type' => \App\Enums\FieldType::class,
         'show_in_preview' => 'boolean',
         'visible_to_voters' => 'boolean',
         'required' => 'boolean',
@@ -37,11 +37,6 @@ class SubmissionSchema extends Model
     public function contest()
     {
         return $this->belongsTo(Contest::class);
-    }
-
-    public function fieldType()
-    {
-        return $this->belongsTo(FieldType::class);
     }
 
     public function options()

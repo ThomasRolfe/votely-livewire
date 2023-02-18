@@ -14,7 +14,7 @@ class SubmissionSchemaResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'field_type' => FieldTypeResource::make($this->fieldType),
+            //'field_type' => FieldTypeResource::make($this->fieldType),
             'label' => $this->label,
             'required' => $this->required,
             'order' => $this->order,

@@ -27,7 +27,7 @@
                                     @endif
                                 </p>
                                 <p class="text-sm text-gray-500">
-                                    {{ $submissionSchema?->fieldType?->nice_name }}
+                                    {{ $submissionSchema?->field_type?->niceName() }}
                                 </p>
                             </div>
                         </li>

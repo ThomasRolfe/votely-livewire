@@ -4,23 +4,23 @@ namespace App\Http\Livewire\App\SubmissionSchemas\Components;
 
 use App\Actions\SubmissionSchemas\CreateSubmissionSchema;
 use App\DataTransferObjects\SubmissionSchemaData;
+use App\Enums\FieldType;
 use App\Http\Requests\StoreSubmissionSchemaRequest;
 use App\Models\Contest;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
 class TextInputSchemaForm extends Component
 {
     public string $label;
-    public string $field_type_id;
+    public FieldType $field_type;
     public ?bool $required = false;
     public ?bool $visible_to_voters = false;
     public Contest $contest;
 
     public function mount()
     {
-        $this->field_type_id = 1;
+        $this->field_type = FieldType::TextInput;
     }
 
     protected function messages(): array

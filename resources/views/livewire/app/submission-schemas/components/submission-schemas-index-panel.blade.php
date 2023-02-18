@@ -5,7 +5,7 @@
                 <div class="flex">
                     <span>{{ $submissionSchema->label }}</span>
                 </div>
-                <span>{{ $submissionSchema->fieldType->nice_name }}</span>
+                <span>{{ $submissionSchema->field_type->niceName() }}</span>
             </x-app.card-body>
         </x-app.card>
     @endforeach
