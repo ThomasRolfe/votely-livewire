@@ -2,14 +2,14 @@
 
 namespace App\Enums;
 
-use App\Http\Livewire\App\SubmissionSchemas\Components\CheckboxSchemaForm;
-use App\Http\Livewire\App\SubmissionSchemas\Components\EmailInputSchemaForm;
-use App\Http\Livewire\App\SubmissionSchemas\Components\FileSchemaForm;
-use App\Http\Livewire\App\SubmissionSchemas\Components\NumberInputSchemaForm;
-use App\Http\Livewire\App\SubmissionSchemas\Components\SelectSchemaForm;
-use App\Http\Livewire\App\SubmissionSchemas\Components\TextAreaSchemaForm;
-use App\Http\Livewire\App\SubmissionSchemas\Components\TextInputSchemaForm;
-use App\Http\Livewire\App\SubmissionSchemas\Components\UrlInputSchemaForm;
+use App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms\CheckboxSchemaForm;
+use App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms\EmailInputSchemaForm;
+use App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms\FileSchemaForm;
+use App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms\NumberInputSchemaForm;
+use App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms\SelectSchemaForm;
+use App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms\TextAreaSchemaForm;
+use App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms\TextInputSchemaForm;
+use App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms\UrlInputSchemaForm;
 
 enum FieldType: string
 {

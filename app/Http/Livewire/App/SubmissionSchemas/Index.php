@@ -4,11 +4,14 @@ namespace App\Http\Livewire\App\SubmissionSchemas;
 
 use App\Http\Livewire\App\SubmissionSchemas\Components\AddSchemaForm;
 use App\Models\Contest;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\URL;
 use Livewire\Component;
 
 class Index extends Component
 {
+    use AuthorizesRequests;
+
     public Contest $contest;
     public bool $modalOpen = false;
     public string $modalComponent = '';
@@ -21,6 +24,8 @@ class Index extends Component
 
     public function mount()
     {
+        $this->authorize('view', $this->contest);
+
         $this->breadcrumbs = [
             [
                 'name' => 'Contests',
@@ -67,7 +72,7 @@ class Index extends Component
     public function addInput()
     {
         $this->modalComponent = AddSchemaForm::class;
-        $this->render();
+        //$this->render();
         $this->openModal();
     }
 }

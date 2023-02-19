@@ -7,7 +7,7 @@
                 </h3>
             </div>
             <div class="flex-shrink-0">
-                <a href="{{ route('contests.edit', $contest) }}"
+                <a href="{{ route('contests.edit', $this->contest) }}"
                    class="button-primary button-small ml-4 text-white">
                     <span>Edit</span>
                     <i class="fa-solid fa-pencil ml-4 flex-shrink h-5 w-5 text-white"></i>
@@ -19,13 +19,13 @@
                 <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
                     <dt class="text-sm font-medium text-gray-500">Name</dt>
                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                        {{ $contest->name }}
+                        {{ $this->contest->name }}
                     </dd>
                 </div>
                 <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
                     <dt class="text-sm font-medium text-gray-500">Description</dt>
                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                        {{ $contest->description }}
+                        {{ $this->contest->description }}
                     </dd>
                 </div>
                 <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
@@ -33,11 +33,11 @@
                     <dd class="mt-1 flex flex-col gap-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                         <div>
                             <span class="text-sm font-medium text-gray-500"> Start: </span>
-                            {{ $contest?->submission_start_date?->toRfc7231String() ?? 'N/A'  }}
+                            {{ $this->contest->submission_start_date?->toRfc7231String() ?? 'N/A'  }}
                         </div>
                         <div>
                             <span class="text-sm font-medium text-gray-500">End: </span>
-                            {{ $contest?->submission_end_date?->toRfc7231String() ?? 'N/A'  }}
+                            {{ $this->contest?->submission_end_date?->toRfc7231String() ?? 'N/A'  }}
                         </div>
                     </dd>
                 </div>
@@ -46,11 +46,11 @@
                     <dd class="mt-1 flex flex-col gap-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                         <div>
                             <span class="text-sm font-medium text-gray-500">Start: </span>
-                            {{ $contest?->vote_start_date?->toRfc7231String() ?? 'N/A' }}
+                            {{ $this->contest?->vote_start_date?->toRfc7231String() ?? 'N/A' }}
                         </div>
                         <div>
                             <span class="text-sm font-medium text-gray-500">End: </span>
-                            {{ $contest?->vote_end_date?->toRfc7231String() ?? 'N/A' }}
+                            {{ $this->contest?->vote_end_date?->toRfc7231String() ?? 'N/A' }}
                         </div>
                     </dd>
                 </div>
@@ -62,7 +62,7 @@
                         </button>
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                        {{ $contest->public_key }}
+                        {{ $this->contest->public_key }}
                         {{--                        {contest?.public_key}--}}
                         {{--                        <Icon--}}
                         {{--                            onClick={() => {--}}
@@ -83,8 +83,8 @@
                     <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                         <div class="max-w-96 max-h-96 ">
                             @if(isset($this->coverImagePath))
-                                <img src="{{ $this->coverImagePath }}" width="{{ $contest->coverImage->width }}"
-                                     height="{{ $contest->coverImage->height }}"/>
+                                <img src="{{ $this->coverImagePath }}" width="{{ $this->contest->coverImage->width }}"
+                                     height="{{ $this->contest->coverImage->height }}"/>
 
                             @else
                                 N/A

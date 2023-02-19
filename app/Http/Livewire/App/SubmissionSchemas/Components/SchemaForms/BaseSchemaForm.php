@@ -1,27 +1,25 @@
 <?php
 
-namespace App\Http\Livewire\App\SubmissionSchemas\Components;
+namespace App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms;
 
 use App\Actions\SubmissionSchemas\CreateSubmissionSchema;
 use App\DataTransferObjects\SubmissionSchemaData;
 use App\Enums\FieldType;
 use App\Http\Requests\StoreSubmissionSchemaRequest;
 use App\Models\Contest;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
-class TextInputSchemaForm extends Component
+abstract class BaseSchemaForm extends Component
 {
     public string $label;
-    public FieldType $field_type;
     public ?bool $required = false;
     public ?bool $visible_to_voters = false;
+    public array $meta = [];
+    public FieldType $field_type;
     public Contest $contest;
-
-    public function mount()
-    {
-        $this->field_type = FieldType::TextInput;
-    }
 
     protected function messages(): array
     {
@@ -33,13 +31,20 @@ class TextInputSchemaForm extends Component
         return (new StoreSubmissionSchemaRequest)->rules();
     }
 
-    public function render()
+    protected function prepareExtraValues(): void
     {
-        return view('livewire.app.submission-schemas.components.text-input-schema-form');
+
     }
 
-    public function submit()
+    abstract public function render(): View;
+
+    /**
+     * @throws ValidationException
+     */
+    public function submit(): void
     {
+        $this->prepareExtraValues();
+
         $validated = Validator::make(
             $this->all(),
             $this->rules(),

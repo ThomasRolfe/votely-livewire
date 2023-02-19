@@ -13,7 +13,7 @@ class CreateSubmissionSchema
 
     public function handle(SubmissionSchemaData $submissionSchemaData, Contest $contest): SubmissionSchema
     {
-        $submissionSchema = SubmissionSchema::make($submissionSchemaData->toArray());
+        $submissionSchema = new SubmissionSchema($submissionSchemaData->toArray());
 
         $contest->submissionSchemas()->save($submissionSchema);
 
@@ -22,7 +22,7 @@ class CreateSubmissionSchema
         }
 
         if (isset($submissionSchemaData->meta)) {
-            $submissionSchema->meta()->createMany($submissionSchemaData->meta);
+            $submissionSchema->meta()->createMany($submissionSchemaData->meta->toArray());
         }
 
         return $submissionSchema;

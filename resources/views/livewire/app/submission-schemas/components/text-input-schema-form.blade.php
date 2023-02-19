@@ -14,8 +14,6 @@
                         required
                     />
                     @error('label')<span>ERROR WITH LABEL {{ $message }}</span>@enderror
-                    @error('required')<span>ERROR WITH required {{ $message }}</span>@enderror
-                    @error('visible_to_voters')<span>ERROR WITH visible_to_voters {{ $message }}</span>@enderror
                 </div>
             </div>
             <x-app.form.label for="required">Field is required</x-app.form.label>

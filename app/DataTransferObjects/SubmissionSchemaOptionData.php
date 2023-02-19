@@ -2,9 +2,7 @@
 
 namespace App\DataTransferObjects;
 
-use Spatie\LaravelData\Data;
-
-class SubmissionSchemaOptionData extends Data
+class SubmissionSchemaOptionData extends \Spatie\LaravelData\Data
 {
     public function __construct(public string $value)
     {

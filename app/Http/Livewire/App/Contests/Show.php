@@ -3,16 +3,21 @@
 namespace App\Http\Livewire\App\Contests;
 
 use App\Models\Contest;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\URL;
 use Livewire\Component;
 
 class Show extends Component
 {
+    use AuthorizesRequests;
+
     public Contest $contest;
     public array $breadcrumbs;
 
     public function mount()
     {
+        $this->authorize('view', $this->contest);
+
         $this->breadcrumbs = [
             [
                 'name' => 'Contests',

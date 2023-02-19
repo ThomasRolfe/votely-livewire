@@ -15,12 +15,13 @@ class LoginController extends Controller
     {
         return Socialite::driver('google')
             ->with(['access_type' => 'offline', 'prompt' => 'select_account'])
+            ->stateless()
             ->redirect();
     }
 
     public function handleGoogleCallback(): RedirectResponse
     {
-        $googleUser = Socialite::driver('google')->user();
+        $googleUser = Socialite::driver('google')->stateless()->user();
 
         $user = User::updateOrCreate([
             'google_id' => $googleUser->id,

@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use App\Enums\FieldType;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
 
 class StoreSubmissionSchemaRequest extends FormRequest
@@ -29,7 +28,7 @@ class StoreSubmissionSchemaRequest extends FormRequest
         return [
             'field_type' => [
                 'required',
-                new Enum(FieldType::class)
+                new Enum(FieldType::class),
             ],
             'label' => 'required|string',
             'required' => 'nullable|boolean',
@@ -38,7 +37,7 @@ class StoreSubmissionSchemaRequest extends FormRequest
             'meta.*.value' => 'required|alpha_num',
             'order' => 'nullable|numeric',
             'options' => 'nullable|array',
-            'options.*value' => 'string',
+            'options.*.value' => 'string',
             'show_in_preview' => 'nullable|boolean',
             'visible_to_voters' => 'nullable|boolean',
         ];

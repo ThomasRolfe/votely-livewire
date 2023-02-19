@@ -65,7 +65,7 @@ class ContestPolicy
      */
     public function delete(User $user, Contest $contest)
     {
-        //
+        return $contest->user_id === $user->id;
     }
 
     /**
