@@ -11,6 +11,6 @@ class EmailInputSchemaForm extends BaseSchemaForm
 
     public function render(): View
     {
-        return view('livewire.app.submission-schemas.components.email-input-schema-form');
+        return view('livewire.app.submission-schemas.components.schema-forms.email-input-schema-form');
     }
 }

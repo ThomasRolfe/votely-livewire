@@ -13,7 +13,7 @@ class FileSchemaForm extends BaseSchemaForm
 
     public function render(): View
     {
-        return view('livewire.app.submission-schemas.components.file-schema-form');
+        return view('livewire.app.submission-schemas.components.schema-forms.file-schema-form');
     }
 
     protected function prepareExtraValues(): void

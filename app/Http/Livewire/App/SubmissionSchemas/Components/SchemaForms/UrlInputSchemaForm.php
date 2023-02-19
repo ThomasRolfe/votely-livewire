@@ -11,6 +11,6 @@ class UrlInputSchemaForm extends BaseSchemaForm
 
     public function render(): View
     {
-        return view('livewire.app.submission-schemas.components.url-input-schema-form');
+        return view('livewire.app.submission-schemas.components.schema-forms.url-input-schema-form');
     }
 }

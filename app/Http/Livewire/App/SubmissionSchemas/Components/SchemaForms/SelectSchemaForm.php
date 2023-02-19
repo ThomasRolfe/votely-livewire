@@ -15,7 +15,7 @@ class SelectSchemaForm extends BaseSchemaForm
 
     public function render(): View
     {
-        return view('livewire.app.submission-schemas.components.select-schema-form');
+        return view('livewire.app.submission-schemas.components.schema-forms.select-schema-form');
     }
 
     public function addOption(): void

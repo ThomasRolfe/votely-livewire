@@ -8,11 +8,9 @@
                     name="name"
                     type="text"
                     autoComplete="off"
-                    value=""
-                    class="mt-1 sm:col-span-2 sm:mt-0"
+                    class="sm:col-span-2"
                     wire:model.lazy="name"
                 />
-                @error('name') <span class="error" id="name-error">{{ $message }}</span> @enderror
             </div>
 
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
@@ -22,10 +20,9 @@
                     name="description"
                     rows="3"
                     autoComplete="off"
-                    class="mt-1 sm:col-span-2 sm:mt-0"
+                    class="sm:col-span-2"
                     wire:model.lazy="description"
                 />
-                @error('description') <span class="error" id="description-error">{{ $message }}</span> @enderror
             </div>
 
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
@@ -49,25 +46,23 @@
         </div>
         <div class="space-y-6 sm:space-y-5">
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:pt-5">
-                <x-app.form.label for="submission-start-date">Start date</x-app.form.label>
+                <x-app.form.label for="submission_start_date">Start date</x-app.form.label>
                 <x-app.form.input
                     type="datetime-local"
-                    name="submission-start-date"
-                    id="submission-start-date"
+                    name="submission_start_date"
+                    id="submission_start_date"
                     wire:model.lazy="submission_start_date"
                 />
-                @error('submission_start_date') <span class="error ">{{ $message }}</span> @enderror
             </div>
 
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                <x-app.form.label for="submission-end-date">End date</x-app.form.label>
+                <x-app.form.label for="submission_end_date">End date</x-app.form.label>
                 <x-app.form.input
                     type="datetime-local"
-                    name="submission-end-date"
-                    id="submission-end-date"
+                    name="submission_end_date"
+                    id="submission_end_date"
                     wire:model.lazy="submission_end_date"
                 />
-                @error('submission_end_date') <span class="error ">{{ $message }}</span> @enderror
             </div>
         </div>
     </div>

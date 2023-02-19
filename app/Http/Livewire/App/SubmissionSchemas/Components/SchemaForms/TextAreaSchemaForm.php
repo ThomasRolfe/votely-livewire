@@ -13,7 +13,7 @@ class TextAreaSchemaForm extends BaseSchemaForm
 
     public function render(): View
     {
-        return view('livewire.app.submission-schemas.components.text-area-schema-form');
+        return view('livewire.app.submission-schemas.components.schema-forms.text-area-schema-form');
     }
 
     protected function prepareExtraValues(): void

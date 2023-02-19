@@ -11,6 +11,6 @@ class CheckboxSchemaForm extends BaseSchemaForm
 
     public function render(): View
     {
-        return view('livewire.app.submission-schemas.components.checkbox-schema-form');
+        return view('livewire.app.submission-schemas.components.schema-forms.checkbox-schema-form');
     }
 }

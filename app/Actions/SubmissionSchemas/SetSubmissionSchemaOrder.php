@@ -3,18 +3,29 @@
 namespace App\Actions\SubmissionSchemas;
 
 use App\Models\SubmissionSchema;
+use Illuminate\Support\Collection;
 use Lorisleiva\Actions\Concerns\AsAction;
+use Spatie\LaravelData\DataCollection;
 
 class SetSubmissionSchemaOrder
 {
     use AsAction;
 
-    public function handle(array $schemas)
+    public function handle(DataCollection $schemaOrders): Collection
     {
-        foreach ($schemas as $schema) {
-            SubmissionSchema::find($schema['id'])->update([
-                'order' => $schema['order'],
+        $updatedSchemas = new Collection;
+
+        foreach ($schemaOrders as $schemaOrder) {
+            /** @var SubmissionSchema $schema */
+            $schema = SubmissionSchema::find($schemaOrder->value);
+
+            $schema->update([
+                'order' => $schemaOrder->order,
             ]);
+
+            $updatedSchemas->push($schema);
         }
+
+        return $updatedSchemas->sortBy('order');
     }
 }

@@ -1,20 +1,18 @@
 <div class="mt-8">
-    <h3 class="text-lg font-medium text-gray-700">URL input</h3>
+    <h3 class="text-lg font-medium text-gray-700">Checkbox input</h3>
 
     <form class="space-y-12 " wire:submit.prevent="submit">
         <div class="mt-6 space-y-6 sm:mt-5 sm:space-y-5">
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                 <x-app.form.label for="label">Label</x-app.form.label>
-                <div class="mt-1 flex max-w-lg rounded-md shadow-sm sm:col-span-2 sm:mt-0">
-                    <x-app.form.input
-                        type="text"
-                        name="label"
-                        id="label"
-                        wire:model.defer="label"
-                        required
-                    />
-                    @error('label')<span>ERROR WITH LABEL {{ $message }}</span>@enderror
-                </div>
+                <x-app.form.input
+                    type="text"
+                    name="label"
+                    id="label"
+                    class="sm:col-span-2"
+                    wire:model.defer="label"
+                    required
+                />
             </div>
             <x-app.form.label for="required">Field is required</x-app.form.label>
             <x-app.form.checkbox name="required" id="required" wire:model.defer="required" />

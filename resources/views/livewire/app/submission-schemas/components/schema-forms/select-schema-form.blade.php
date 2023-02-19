@@ -5,34 +5,27 @@
         <div class="mt-6 space-y-6 sm:mt-5 sm:space-y-5">
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                 <x-app.form.label for="label">Label</x-app.form.label>
-                <div class="mt-1 flex max-w-lg rounded-md shadow-sm sm:col-span-2 sm:mt-0">
-                    <x-app.form.input
-                        type="text"
-                        name="label"
-                        id="label"
-                        wire:model.defer="label"
-                        required
-                    />
-                    @error('label')<span>ERROR WITH LABEL {{ $message }}</span>@enderror
-                </div>
+                <x-app.form.input
+                    type="text"
+                    name="label"
+                    id="label"
+                    class="sm:col-span-2"
+                    wire:model.defer="label"
+                    required
+                />
             </div>
 
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                 <x-app.form.label for="options">Options</x-app.form.label>
 
                 @foreach($this->options as $index => $option)
-                    <div
+                    <x-app.form.input
+                        type="text"
+                        name="options.{{ $index }}.value"
+                        id="options.{{ $index }}.value"
                         class="mt-1 sm:col-span-2 sm:col-start-2 sm:mt-0"
-                    >
-                        <div class="flex max-w-lg rounded-md shadow-sm">
-                            <x-app.form.input
-                                type="text"
-                                name="options.{{ $index }}.value"
-                                id="options.{{ $index }}.value"
-                                wire:model="options.{{ $index }}.value"
-                            />
-                        </div>
-                    </div>
+                        wire:model="options.{{ $index }}.value"
+                    />
                 @endforeach
 
                 <button type="button" wire:click="addOption()">Add option</button>

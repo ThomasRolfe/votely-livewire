@@ -9,8 +9,9 @@ class TextInputSchemaForm extends BaseSchemaForm
 {
     public FieldType $field_type = FieldType::TextInput;
 
+
     public function render(): View
     {
-        return view('livewire.app.submission-schemas.components.text-input-schema-form');
+        return view('livewire.app.submission-schemas.components.schema-forms.text-input-schema-form');
     }
 }

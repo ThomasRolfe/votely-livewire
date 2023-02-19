@@ -6,6 +6,7 @@ use App\Http\Livewire\App\SubmissionSchemas\Components\AddSchemaForm;
 use App\Models\Contest;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Index extends Component
@@ -15,6 +16,7 @@ class Index extends Component
     public Contest $contest;
     public bool $modalOpen = false;
     public string $modalComponent = '';
+    public string $modalComponentKey = 'default';
     public array $breadcrumbs;
     protected $listeners = [
         'setModalComponent' => 'setModalComponent',
@@ -60,19 +62,18 @@ class Index extends Component
     public function setModalComponent(string $component)
     {
         $this->modalComponent = $component;
+        $this->modalComponentKey = stripslashes($component);
     }
 
     public function submissionSchemaCreated()
     {
         $this->contest = Contest::find($this->contest->id);
         $this->closeModal();
-        $this->emitSelf('$refresh');
     }
 
     public function addInput()
     {
-        $this->modalComponent = AddSchemaForm::class;
-        //$this->render();
+        $this->setModalComponent(AddSchemaForm::class);
         $this->openModal();
     }
 }

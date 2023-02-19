@@ -1,5 +1,27 @@
-<select
-    {{ $attributes->merge(['class' => 'block rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm']) }}
->
-{{ $slot }}
-</select>
+@php
+    $baseInputClass = 'block w-full min-w-0 flex-1 rounded-md sm:text-sm';
+    $defaultInputClass = 'border-gray-300 focus:border-blue-500 focus:ring-blue-500';
+    $errorInputClass = 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500';
+@endphp
+
+<div class="{{ $class ?? '' }}">
+    <div class="relative mt-1">
+
+        <select
+            @error($name ?? null)
+            class="{{ $baseInputClass . " " . $errorInputClass }}"
+            @else
+                class="{{ $baseInputClass . " " . $defaultInputClass }}"
+            @enderror
+            {{ $attributes }}
+        >
+            {{ $slot }}
+        </select>
+
+    </div>
+    @error($name ?? null)
+    <x-app.form.validation-error>
+        {{ $message }}
+    </x-app.form.validation-error>
+    @enderror
+</div>

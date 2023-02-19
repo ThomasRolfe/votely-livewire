@@ -23,7 +23,7 @@
 
     <x-app.modal class="sm:max-w-lg sm:p-6" title="Add input">
         @if($this->modalComponent)
-            @livewire($this->modalComponent, ['contest' => $this->contest], key('component' . $this->modalComponent))
+            @livewire($this->modalComponent, ['contest' => $this->contest], key($this->modalComponentKey))
         @endif
     </x-app.modal>
 </div>
