@@ -3,8 +3,9 @@
 namespace App\Http\Livewire\App\Contests\Components;
 
 use App\Actions\Contests\RegenerateContestPublicKey;
+use App\Contracts\GetsFiles;
 use App\Models\Contest;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\App;
 use Livewire\Component;
 
 class ContestInformationPanel extends Component
@@ -23,14 +24,9 @@ class ContestInformationPanel extends Component
             return null;
         }
 
-        // TODO: Create separate file fetch services & inject based on environment
-        if (config('filesystems.default') === 's3') {
-            return Storage::temporaryUrl($this->contest->coverImage->path, now()->addMinutes(60));
-        } elseif (config('filesystems.default') === 'local') {
-            return Storage::url($this->contest->coverImage->path);
-        }
+        $fileService = App::make(GetsFiles::class);
 
-        return null;
+        return $fileService->getFileUrl($this->contest->coverImage->path);
     }
 
     public function render()

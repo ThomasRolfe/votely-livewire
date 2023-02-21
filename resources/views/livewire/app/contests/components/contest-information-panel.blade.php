@@ -84,7 +84,7 @@
                         <div class="max-w-96 max-h-96 ">
                             @if(isset($this->coverImagePath))
                                 <img src="{{ $this->coverImagePath }}" width="{{ $this->contest->coverImage->width }}"
-                                     height="{{ $this->contest->coverImage->height }}"/>
+                                     height="{{ $this->contest->coverImage->height }}" />
 
                             @else
                                 N/A

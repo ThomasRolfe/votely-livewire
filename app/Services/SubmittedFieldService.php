@@ -9,7 +9,7 @@ use Illuminate\Http\UploadedFile;
 
 class SubmittedFieldService
 {
-    public function __construct(protected FileService $fileService)
+    public function __construct(protected FileServiceLocal $fileService)
     {
     }
 
