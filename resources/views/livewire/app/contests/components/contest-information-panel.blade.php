@@ -10,7 +10,7 @@
                 <a href="{{ route('contests.edit', $this->contest) }}"
                    class="button-primary button-small ml-4 text-white">
                     <span>Edit</span>
-                    <i class="fa-solid fa-pencil ml-4 flex-shrink h-5 w-5 text-white"></i>
+                    <i class="fa-solid fa-pencil ml-4 flex-shrink text-white"></i>
                 </a>
             </div>
         </x-app.card-header>

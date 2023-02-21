@@ -23,6 +23,7 @@ class ContestInformationPanel extends Component
             return null;
         }
 
+        // TODO: Create separate file fetch services & inject based on environment
         if (config('filesystems.default') === 's3') {
             return Storage::temporaryUrl($this->contest->coverImage->path, now()->addMinutes(60));
         } elseif (config('filesystems.default') === 'local') {

@@ -31,7 +31,7 @@
                         @click="show = false"
                     >
                         <span class="sr-only">Close</span>
-                        <span>X</span>
+                        <i class="fa-solid fa-xmark fa-xl"></i>
                     </button>
                 </div>
                 @isset($title)

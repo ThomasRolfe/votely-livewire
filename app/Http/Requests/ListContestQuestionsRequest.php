@@ -14,8 +14,6 @@ class ListContestQuestionsRequest extends FormRequest
     public function authorize()
     {
         return true;
-
-        return $this->contest && $this->user()->can('view', $this->contest);
     }
 
     /**

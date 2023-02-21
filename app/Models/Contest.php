@@ -47,22 +47,22 @@ class Contest extends Model
         });
     }
 
-    public function submissionSchemas()
+    public function submissionSchemas(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(SubmissionSchema::class)->orderBy('order', 'ASC');
     }
 
-    public function questions()
+    public function questions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Question::class);
     }
 
-    public function coverImage()
+    public function coverImage(): \Illuminate\Database\Eloquent\Relations\MorphOne
     {
         return $this->morphOne(File::class, 'fileable');
     }
 
-    public function submissions()
+    public function submissions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Submission::class);
     }

@@ -1,4 +1,3 @@
-@if($this->show)
 <div class="mt-8">
     <h3 class="text-lg font-medium text-gray-700">Text input</h3>
 
@@ -27,6 +26,3 @@
         </div>
     </form>
 </div>
-@else
-    <div></div>
-@endif
