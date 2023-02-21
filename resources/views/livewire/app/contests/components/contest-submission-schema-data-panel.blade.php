@@ -2,7 +2,7 @@
     <x-app.card>
         <x-app.card-header>
             <h3 class="text-lg font-medium leading-6 text-slate-700">
-                Submission Schemas
+                Submission Form Fields
             </h3>
             <a href="{{ route('contests.submission-schema.index', $contest) }}"
                class="button-primary button-small ml-4 text-white flex">

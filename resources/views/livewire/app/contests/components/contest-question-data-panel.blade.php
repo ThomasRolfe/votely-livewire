@@ -2,7 +2,7 @@
     <x-app.card>
         <x-app.card-header>
             <h3 class="text-lg font-medium leading-6 text-slate-700">
-                Questions
+                Voting Questions
             </h3>
             <a href="{{ route('contests.questions.edit', $contest) }}"
                class="button-primary button-small ml-4 text-white">

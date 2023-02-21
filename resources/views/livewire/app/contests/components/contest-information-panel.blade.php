@@ -56,9 +56,10 @@
                 </div>
                 <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
                     <dt class="flex text-sm font-medium text-gray-500">
-                        <span>Public submission key </span>
-                        <button title="Regenerate public key">
-                            refresh icon
+                        <span>Public key </span>
+                        <button>
+
+                            <i title="Regenerate public key" class="fa-solid fa-arrow-rotate-right fa-lg ml-2 text-green-500" wire:click="regeneratePublicKey"></i>
                         </button>
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">

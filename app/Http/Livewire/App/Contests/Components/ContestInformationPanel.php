@@ -12,6 +12,7 @@ class ContestInformationPanel extends Component
 {
     public Contest $contest;
 
+    // Exists in case the random string generated is not suitable
     public function regeneratePublicKey(): void
     {
         $contest = RegenerateContestPublicKey::run($this->contest);

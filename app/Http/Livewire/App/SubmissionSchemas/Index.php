@@ -6,7 +6,6 @@ use App\Http\Livewire\App\SubmissionSchemas\Components\AddSchemaForm;
 use App\Models\Contest;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Index extends Component
@@ -38,7 +37,7 @@ class Index extends Component
                 'href' => route('contests.show', $this->contest),
             ],
             [
-                'name' => 'Submission Schema',
+                'name' => 'Submission Form Fields',
                 'href' => URL::current(),
             ],
         ];
