@@ -5,6 +5,7 @@ namespace App\Http\Livewire\App\Contests\Components;
 use App\Actions\Contests\RegenerateContestPublicKey;
 use App\Contracts\GetsFiles;
 use App\Models\Contest;
+use App\Services\ContestService;
 use Illuminate\Support\Facades\App;
 use Livewire\Component;
 
@@ -21,13 +22,18 @@ class ContestInformationPanel extends Component
 
     public function getCoverImagePathProperty(): ?string
     {
-        if (! $this->contest->coverImage) {
+        if (!$this->contest->coverImage) {
             return null;
         }
 
         $fileService = App::make(GetsFiles::class);
 
         return $fileService->getFileUrl($this->contest->coverImage->path);
+    }
+
+    public function getContestEntryPathProperty(): string
+    {
+        return App::make(ContestService::class)->getContestEntryPath($this->contest);
     }
 
     public function render()

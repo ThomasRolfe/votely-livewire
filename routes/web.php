@@ -18,9 +18,8 @@ Route::get('/auth/google/callback', [LoginController::class, 'handleGoogleCallba
 
 Route::get('/file/{file:uuid}/download', [FileController::class, 'download']);
 
-if (App::environment('local')) {
-    Route::get('/local-auth', [LoginController::class, 'localAuth']);
-}
+Route::get('/enter/{contest:public_key}', \App\Http\Livewire\App\Contests\Show::class)->name('enter.show');
+Route::post('/enter/{contest:public_key}', \App\Http\Livewire\App\Contests\Show::class)->name('enter.store');
 
 // Authenticated application routes
 Route::middleware([
@@ -52,3 +51,7 @@ Route::middleware([
     // Settings
     Route::get('/settings', [SettingController::class, 'index'])->name('settings');
 });
+
+if (App::environment('local')) {
+    Route::get('/local-auth', [LoginController::class, 'localAuth']);
+}

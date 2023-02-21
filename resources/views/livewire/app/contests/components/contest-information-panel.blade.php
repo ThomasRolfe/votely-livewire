@@ -58,23 +58,18 @@
                     <dt class="flex text-sm font-medium text-gray-500">
                         <span>Public key </span>
                         <button>
-
-                            <i title="Regenerate public key" class="fa-solid fa-arrow-rotate-right fa-lg ml-2 text-green-500" wire:click="regeneratePublicKey"></i>
+                            <i title="Regenerate public key"
+                               class="fa-solid fa-arrow-rotate-right fa-lg ml-2 text-green-500"
+                               wire:click="regeneratePublicKey"></i>
                         </button>
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                         {{ $this->contest->public_key }}
-                        {{--                        {contest?.public_key}--}}
-                        {{--                        <Icon--}}
-                        {{--                            onClick={() => {--}}
-                        {{--                        navigator.clipboard.writeText(--}}
-                        {{--                        `${window.location.host}/enter/${contest?.public_key}`--}}
-                        {{--                        )--}}
-                        {{--                        }}--}}
-                        {{--                        IconElement={ClipboardCopyIcon}--}}
-                        {{--                        class="ml-4 text-gray-500 hover:cursor-pointer hover:text-blue-500"--}}
-                        {{--                        title="Copy to clipboard"--}}
-                        {{--                        />--}}
+                        <button type="button" id="copy-contest-path-button" data-publicpath="{{ $this->contestEntryPath }}">
+                            <i title="Copy to clipboard"
+                               class="fa-regular fa-clipboard fa-lg ml-4 text-gray-500 hover:cursor-pointer hover:text-blue-500"
+                            ></i>
+                        </button>
                     </dd>
                 </div>
                 <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
@@ -85,7 +80,7 @@
                         <div class="max-w-96 max-h-96 ">
                             @if(isset($this->coverImagePath))
                                 <img src="{{ $this->coverImagePath }}" width="{{ $this->contest->coverImage->width }}"
-                                     height="{{ $this->contest->coverImage->height }}" />
+                                     height="{{ $this->contest->coverImage->height }}"/>
 
                             @else
                                 N/A
@@ -96,4 +91,11 @@
             </dl>
         </div>
     </x-app.card>
+
+    <script>
+        document.getElementById("copy-contest-path-button").addEventListener('click', (event) => {
+            let path = document.getElementById("copy-contest-path-button").getAttribute('data-publicpath');
+            navigator.clipboard.writeText(path);
+        })
+    </script>
 </div>
