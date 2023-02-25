@@ -11,7 +11,7 @@
                 {{ session('status') }}
             </div>
         @endif
-        <a href="/auth/google">
+        <a href="{{ route('login.google') }}">
             <x-jet-button>
                 Log in with Google
             </x-jet-button>

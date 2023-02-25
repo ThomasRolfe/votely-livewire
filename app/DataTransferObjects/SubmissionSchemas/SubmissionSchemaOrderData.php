@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataTransferObjects;
+namespace App\DataTransferObjects\SubmissionSchemas;
 
 class SubmissionSchemaOrderData extends \Spatie\LaravelData\Data
 {

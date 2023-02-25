@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms;
 
 use App\Actions\SubmissionSchemas\CreateSubmissionSchema;
-use App\DataTransferObjects\SubmissionSchemaData;
+use App\DataTransferObjects\SubmissionSchemas\SubmissionSchemaData;
 use App\Enums\FieldType;
 use App\Http\Requests\StoreSubmissionSchemaRequest;
 use App\Models\Contest;

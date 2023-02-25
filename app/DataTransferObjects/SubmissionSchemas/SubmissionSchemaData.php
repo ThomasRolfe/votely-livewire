@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataTransferObjects;
+namespace App\DataTransferObjects\SubmissionSchemas;
 
 use App\Enums\FieldType;
 use Spatie\LaravelData\Attributes\DataCollectionOf;

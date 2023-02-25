@@ -5,7 +5,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +12,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/auth/google', [LoginController::class, 'redirectToGoogle'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/auth/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('/auth/google/callback', [LoginController::class, 'handleGoogleCallback']);
 
 Route::get('/file/{file:uuid}/download', [FileController::class, 'download']);
@@ -30,10 +30,12 @@ Route::middleware([
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Contests
-    Route::get('/contests', \App\Http\Livewire\App\Contests\Index::class)->name('contests.index');
-    Route::get('/contests/create', \App\Http\Livewire\App\Contests\Create::class)->name('contests.create');
-    Route::get('/contests/{contest}', \App\Http\Livewire\App\Contests\Show::class)->name('contests.show');
-    Route::get('/contests/{contest}/edit', \App\Http\Livewire\App\Contests\Show::class)->name('contests.edit');
+    Route::prefix('/contests')->group(function () {
+        Route::get('/', \App\Http\Livewire\App\Contests\Index::class)->name('contests.index');
+        Route::get('/create', \App\Http\Livewire\App\Contests\Create::class)->name('contests.create');
+        Route::get('/{contest}', \App\Http\Livewire\App\Contests\Show::class)->name('contests.show');
+        Route::get('/{contest}/edit', \App\Http\Livewire\App\Contests\Show::class)->name('contests.edit');
+    });
 
     // Submission schema
     Route::prefix('contests/{contest}/submission-schemas')->group(function () {
@@ -46,7 +48,13 @@ Route::middleware([
     });
 
     // Tags
-    Route::get('/tags', [TagController::class, 'index'])->name('tags');
+    Route::prefix('/tags')->group(function () {
+        Route::get('/', \App\Http\Livewire\App\Tags\Index::class)->name('tags.index');
+        Route::get('/create', \App\Http\Livewire\App\Tags\Create::class)->name('tags.create');
+        Route::get('/{tag}/edit', \App\Http\Livewire\App\Tags\Edit::class)->name('tags.edit');
+        //Route::get('/tags/{contest}', \App\Http\Livewire\App\Tags\Show::class)->name('tags.show');
+        //Route::get('/tags/{contest}/edit', \App\Http\Livewire\App\Tags\Show::class)->name('tags.edit');
+    });
 
     // Settings
     Route::get('/settings', [SettingController::class, 'index'])->name('settings');

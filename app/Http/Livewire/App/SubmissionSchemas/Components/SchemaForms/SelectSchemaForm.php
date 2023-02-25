@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\App\SubmissionSchemas\Components\SchemaForms;
 
-use App\DataTransferObjects\SubmissionSchemaOptionData;
+use App\DataTransferObjects\SubmissionSchemas\SubmissionSchemaOptionData;
 use App\Enums\FieldType;
 use Illuminate\Contracts\View\View;
 

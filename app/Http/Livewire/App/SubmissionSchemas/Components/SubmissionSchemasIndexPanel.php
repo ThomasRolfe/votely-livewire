@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\App\SubmissionSchemas\Components;
 
 use App\Actions\SubmissionSchemas\SetSubmissionSchemaOrder;
-use App\DataTransferObjects\SubmissionSchemaOrderData;
+use App\DataTransferObjects\SubmissionSchemas\SubmissionSchemaOrderData;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 

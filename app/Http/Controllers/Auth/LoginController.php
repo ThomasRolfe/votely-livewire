@@ -11,6 +11,11 @@ use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
+    public function login(Request $request)
+    {
+        return view('auth.login');
+    }
+
     public function redirectToGoogle()
     {
         return Socialite::driver('google')
@@ -45,7 +50,7 @@ class LoginController extends Controller
             $user = User::first();
         }
 
-        if (! $user) {
+        if (!$user) {
             return redirect()->back();
         }
 

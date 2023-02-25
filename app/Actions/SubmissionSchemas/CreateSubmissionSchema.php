@@ -2,7 +2,7 @@
 
 namespace App\Actions\SubmissionSchemas;
 
-use App\DataTransferObjects\SubmissionSchemaData;
+use App\DataTransferObjects\SubmissionSchemas\SubmissionSchemaData;
 use App\Models\Contest;
 use App\Models\SubmissionSchema;
 use Lorisleiva\Actions\Concerns\AsAction;
