@@ -17,7 +17,8 @@
         "lorisleiva/laravel-actions": "^2.5",
         "sentry/sentry-laravel": "^3.2",
         "spatie/laravel-activitylog": "^4.7",
-        "spatie/laravel-data": "^3.0"
+        "spatie/laravel-data": "^3.0",
+        "wireui/wireui": "^1.17"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",

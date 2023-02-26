@@ -11,7 +11,13 @@
             </div>
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
                 <x-app.form.label for="color">Colour</x-app.form.label>
-                <x-app.form.input type="color" value="#e66465" id="color" name="color" wire:model.lazy="color" />
+                <x-color-picker placeholder="Select the background color" wire:model.lazy="color" />
+
+{{--                <x-app.form.input type="color" value="#e66465" id="color" name="color" wire:model.lazy="color" />--}}
+            </div>
+            <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4  sm:pt-5">
+                <x-app.form.label>Preview</x-app.form.label>
+                <x-app.tag :color="$color" :label="$label" />
             </div>
         </div>
     </div>
@@ -21,6 +27,7 @@
             <button
                 type="button"
                 class="button button-lesser button-regular"
+                wire:click="cancel"
             >
                 Cancel
             </button>
@@ -30,9 +37,9 @@
                 wire:loading.attribute="disabled"
             >
                 <span wire:loading.remove wire:target="submit">Save</span>
-                <div wire:loading wire:target="submit"><i
-
-                        class="fa-solid fa-circle-notch fa-spin text-white "></i></div>
+                <div wire:loading wire:target="submit">
+                    <i class="fa-solid fa-circle-notch fa-spin text-white "></i>
+                </div>
             </button>
         </div>
     </div>

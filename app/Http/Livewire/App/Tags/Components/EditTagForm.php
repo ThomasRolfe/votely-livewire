@@ -33,6 +33,11 @@ class EditTagForm extends Component
         return (new StoreTagRequest)->rules();
     }
 
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
+
     public function render()
     {
         return view('livewire.app.tags.components.edit-tag-form');
@@ -45,6 +50,11 @@ class EditTagForm extends Component
 
         UpdateTag::run($this->tag, TagData::from($validated));
 
+        return redirect()->route('tags.index');
+    }
+
+    public function cancel()
+    {
         return redirect()->route('tags.index');
     }
 }

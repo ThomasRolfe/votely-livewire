@@ -14,7 +14,7 @@ class CreateTagForm extends Component
 {
     use AuthorizesRequests;
 
-    public string $label;
+    public ?string $label;
     public string $color = '#FF0000';
 
     protected function messages(): array
@@ -25,6 +25,11 @@ class CreateTagForm extends Component
     protected function rules(): array
     {
         return (new StoreTagRequest)->rules();
+    }
+
+    public function setColor($color)
+    {
+        $this->color = $color;
     }
 
     public function render()
@@ -39,6 +44,11 @@ class CreateTagForm extends Component
 
         CreateTag::run(Auth::user(), TagData::from($validated));
 
+        return redirect()->route('tags.index');
+    }
+
+    public function cancel()
+    {
         return redirect()->route('tags.index');
     }
 }
