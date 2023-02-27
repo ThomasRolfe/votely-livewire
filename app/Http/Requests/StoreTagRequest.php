@@ -29,9 +29,13 @@ class StoreTagRequest extends FormRequest
             'label' => [
                 'required',
                 Rule::unique('tags')->where(function ($query) {
-                    $query->where('user_id', Auth::user()->id);
+                    $query->where('user_id', Auth::user()->id)
+                        ->where('id', '!=', isset($this->id) ? $this->id : null);
                 }),
                 'string',
+            ],
+            'id' => [
+                'sometimes|exists:tags,id',
             ],
             'color' => 'string|regex:/\#[A-Ga-g0-9]{6}/',
         ];

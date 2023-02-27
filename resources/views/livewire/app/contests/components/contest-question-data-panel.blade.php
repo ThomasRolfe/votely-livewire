@@ -4,7 +4,7 @@
             <h3 class="text-lg font-medium leading-6 text-slate-700">
                 Voting Questions
             </h3>
-            <a href="{{ route('contests.questions.edit', $contest) }}"
+            <a href="{{ route('contests.questions.index', $contest) }}"
                class="button-primary button-small ml-4 text-white">
                 <span>Edit</span>
                 <i class="fa-solid fa-pencil ml-4 flex-shrink text-white"></i>

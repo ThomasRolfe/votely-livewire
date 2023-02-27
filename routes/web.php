@@ -3,7 +3,6 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FileController;
-use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -37,14 +36,16 @@ Route::middleware([
         Route::get('/{contest}/edit', \App\Http\Livewire\App\Contests\Show::class)->name('contests.edit');
     });
 
-    // Submission schema
-    Route::prefix('contests/{contest}/submission-schemas')->group(function () {
-        Route::get('/', \App\Http\Livewire\App\SubmissionSchemas\Index::class)->name('contests.submission-schema.index');
-    });
+    Route::prefix('/contests/{contest}')->group(function () {
+        // Submission schema
+        Route::prefix('/submission-schemas')->group(function () {
+            Route::get('/', \App\Http\Livewire\App\SubmissionSchemas\Index::class)->name('contests.submission-schema.index');
+        });
 
-    // Questions
-    Route::prefix('contests/{contest}/questions')->group(function () {
-        Route::get('/edit', [QuestionController::class, 'edit'])->name('contests.questions.edit');
+        // Questions
+        Route::prefix('/questions')->group(function () {
+            Route::get('/', \App\Http\Livewire\App\Questions\Index::class)->name('contests.questions.index');
+        });
     });
 
     // Tags

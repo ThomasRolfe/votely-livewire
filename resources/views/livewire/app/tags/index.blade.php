@@ -25,12 +25,7 @@
                             <li>
                                 <div class="px-4 py-4 sm:px-6">
                                     <div class="flex items-center justify-between">
-                                        <p
-                                            style="background-color: {{ $tag->color }}"
-                                            class="inline-flex rounded-full px-3 text-xs font-semibold capitalize leading-5 text-white"
-                                        >
-                                            {{ $tag->label }}
-                                        </p>
+                                        <x-app.tag :label="$tag->label" :color="$tag->color" />
                                         <div class="ml-2 flex flex-shrink-0">
                                             <a href="{{ route('tags.edit', ['tag' => $tag]) }}"
                                                class="button-primary button-small ml-4 text-white">
