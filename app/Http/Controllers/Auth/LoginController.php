@@ -42,6 +42,12 @@ class LoginController extends Controller
         return redirect()->route('dashboard');
     }
 
+    /**
+     * This is temporary for local dev when google oauth credentials are unavailable
+     *
+     * @param  Request  $request
+     * @return RedirectResponse
+     */
     public function localAuth(Request $request)
     {
         if ($request->has('user_id')) {
