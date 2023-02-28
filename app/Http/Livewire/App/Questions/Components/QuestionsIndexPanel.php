@@ -20,9 +20,9 @@ class QuestionsIndexPanel extends Component
         $this->hydrateQuestions($questions);
     }
 
-    public function hydrateSchemas($schemas)
+    public function hydrateQuestions($questions)
     {
-        $this->submissionSchemas = $schemas;
+        $this->questions = $questions;
     }
 
     public function render()

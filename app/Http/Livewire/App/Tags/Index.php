@@ -4,6 +4,8 @@ namespace App\Http\Livewire\App\Tags;
 
 use App\Actions\Tags\DeleteTag;
 use App\Models\Tag;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use WireUi\Traits\Actions;
@@ -13,10 +15,10 @@ class Index extends Component
     use Actions;
     use AuthorizesRequests;
 
-    /** @var Tag[] tags */
-    public $tags;
+    /** @var Collection<Tag> tags */
+    public Collection $tags;
 
-    public $breadcrumbs;
+    public array $breadcrumbs;
 
     public function mount()
     {
@@ -30,6 +32,9 @@ class Index extends Component
         ];
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function delete(Tag $tag): void
     {
         $this->authorize('delete', $tag);

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\App\SubmissionSchemas;
 
 use App\Http\Livewire\App\SubmissionSchemas\Components\AddSchemaForm;
 use App\Models\Contest;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\URL;
 use Livewire\Component;
@@ -23,7 +24,10 @@ class Index extends Component
         'submissionSchemaCreated' => 'submissionSchemaCreated',
     ];
 
-    public function mount()
+    /**
+     * @throws AuthorizationException
+     */
+    public function mount(): void
     {
         $this->authorize('view', $this->contest);
 
@@ -48,29 +52,29 @@ class Index extends Component
         return view('livewire.app.submission-schemas.index')->with(['modalComponent' => $this->modalComponent]);
     }
 
-    public function openModal()
+    public function openModal(): void
     {
         $this->modalOpen = true;
     }
 
-    public function closeModal()
+    public function closeModal(): void
     {
         $this->modalOpen = false;
     }
 
-    public function setModalComponent(string $component)
+    public function setModalComponent(string $component): void
     {
         $this->modalComponent = $component;
         $this->modalComponentKey = stripslashes($component);
     }
 
-    public function submissionSchemaCreated()
+    public function submissionSchemaCreated(): void
     {
         $this->contest = Contest::find($this->contest->id);
         $this->closeModal();
     }
 
-    public function addInput()
+    public function addInput(): void
     {
         $this->setModalComponent(AddSchemaForm::class);
         $this->openModal();

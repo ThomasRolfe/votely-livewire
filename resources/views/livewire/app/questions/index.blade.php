@@ -1,6 +1,6 @@
 <div>
     <x-app.layouts.header>
-        <x-app.layouts.header-left :breadcrumbs="$breadcrumbs">
+        <x-app.layouts.header-left :breadcrumbs="$this->breadcrumbs">
             <x-app.layouts.title>
                 {{ __('Voting Questions') }}
             </x-app.layouts.title>

@@ -6,11 +6,10 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public $breadcrumbs;
+    public array $breadcrumbs;
 
-    public function mount()
+    public function mount(): void
     {
-
         $this->breadcrumbs = [
             [
                 'name' => 'Tags',

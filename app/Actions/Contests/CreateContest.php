@@ -13,7 +13,7 @@ class CreateContest
 
     /**
      * @param  User  $user
-     * @param  array<string, string>  $contestData
+     * @param  ContestData  $contestData
      * @return Contest
      */
     public function handle(User $user, ContestData $contestData): Contest

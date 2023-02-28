@@ -3,6 +3,8 @@
 namespace App\DataTransferObjects\Contests;
 
 use App\Enums\ContestStatuses;
+use Spatie\LaravelData\Attributes\WithCast;
+use Spatie\LaravelData\Casts\EnumCast;
 
 class ContestData extends \Spatie\LaravelData\Data
 {
@@ -13,6 +15,7 @@ class ContestData extends \Spatie\LaravelData\Data
         public ?string $submission_end_date,
         public ?string $vote_start_date,
         public ?string $vote_end_date,
+        #[WithCast(EnumCast::class)]
         public ?ContestStatuses $status = ContestStatuses::Draft,
     ) {
     }

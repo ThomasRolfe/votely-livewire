@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\App\Contests;
 
 use App\Models\Contest;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\URL;
 use Livewire\Component;
@@ -14,6 +15,9 @@ class Show extends Component
     public Contest $contest;
     public array $breadcrumbs;
 
+    /**
+     * @throws AuthorizationException
+     */
     public function mount()
     {
         $this->authorize('view', $this->contest);

@@ -12,14 +12,14 @@ class TagController extends Controller
 {
     public function index()
     {
-        return view('tags')->with(['tags' => Auth::user()->tags]);
+        //return view('tags')->with(['tags' => Auth::user()->tags]);
     }
 
     public function store(StoreTagRequest $request)
     {
-        $tag = Auth::user()->tags()->create($request->validated());
-
-        return TagResource::make($tag);
+        //$tag = Auth::user()->tags()->create($request->validated());
+        //
+        //return TagResource::make($tag);
     }
 
     public function update(Request $request, Tag $tag)
