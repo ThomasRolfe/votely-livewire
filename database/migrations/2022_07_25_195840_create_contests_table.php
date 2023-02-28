@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('cover_image')->nullable();
-            $table->string('status')->nullable(ContestStatuses::Draft->value);
+            $table->enum('status', array_column(ContestStatuses::cases(), 'value'))->nullable(ContestStatuses::Draft->value);
             $table->timestamp('submission_start_date')->nullable();
             $table->timestamp('submission_end_date')->nullable();
             $table->timestamp('vote_start_date')->nullable();

@@ -75,25 +75,23 @@
         </div>
         <div class="space-y-6 sm:space-y-5">
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:pt-5">
-                <x-app.form.label for="vote-start-date">Start date</x-app.form.label>
+                <x-app.form.label for="vote_start_date">Start date</x-app.form.label>
                 <x-app.form.input
                     type="datetime-local"
-                    name="vote-start-date"
-                    id="vote-start-date"
+                    name="vote_start_date"
+                    id="vote_start_date"
                     wire:model.lazy="vote_start_date"
                 />
-                @error('vote_start_date') <span class="error ">{{ $message }}</span> @enderror
             </div>
 
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
-                <x-app.form.label for="vote-end-date">End date</x-app.form.label>
+                <x-app.form.label for="vote_end_date">End date</x-app.form.label>
                 <x-app.form.input
                     type="datetime-local"
-                    name="vote-end-date"
-                    id="vote-end-date"
+                    name="vote_end_date"
+                    id="vote_end_date"
                     wire:model.lazy="vote_end_date"
                 />
-                @error('vote_end_date') <span class="error ">{{ $message }}</span> @enderror
             </div>
         </div>
     </div>

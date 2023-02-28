@@ -15,6 +15,7 @@ class Contest extends Model
     protected $fillable = [
         'name',
         'description',
+        'status',
         'public_key',
         'submission_start_date',
         'submission_end_date',

@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Actions\Contests\CreateContest;
+use App\DataTransferObjects\Contests\ContestData;
 use App\Models\User;
 use Database\Factories\ContestFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -21,13 +22,13 @@ class CreateContestActionTest extends TestCase
     public function test_contest_can_be_created_and_attached_to_a_user()
     {
         $contestFactory = App::make(ContestFactory::class);
-        $contestData = $contestFactory->definition();
+        $contestData = ContestData::from($contestFactory->definition());
 
         $user = User::factory()->create();
 
         $contest = CreateContest::run($user, $contestData);
 
-        $this->assertTrue($contest->name === $contestData['name']);
+        $this->assertTrue($contest->name === $contestData->name);
         $this->assertTrue($user->contests->contains($contest));
     }
 }

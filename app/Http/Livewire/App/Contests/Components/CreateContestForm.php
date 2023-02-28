@@ -4,6 +4,7 @@ namespace App\Http\Livewire\App\Contests\Components;
 
 use App\Actions\Contests\CreateContest;
 use App\Actions\Contests\CreateContestCoverImage;
+use App\DataTransferObjects\Contests\ContestData;
 use App\Http\Requests\StoreContestRequest;
 use App\Models\Contest;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -49,9 +50,10 @@ class CreateContestForm extends Component
     public function submit()
     {
         $this->authorize('create', Contest::class);
+
         $validated = $this->validate();
 
-        $contest = CreateContest::run(Auth::user(), $validated);
+        $contest = CreateContest::run(Auth::user(), ContestData::from($validated));
 
         if (isset($validated['cover_image'])) {
             $contest = CreateContestCoverImage::run($contest, $this->cover_image);
